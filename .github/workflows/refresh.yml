@@ -1,0 +1,43 @@
+name: Refresh profile
+
+on:
+  schedule:
+    - cron: "23 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency: refresh
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - run: python -m unittest discover -s tests
+
+      # Exits non-zero without writing anything if a fetch fails, so a bad
+      # run fails here and never reaches the commit step.
+      - run: python -m scripts.build refresh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A README.md assets
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "chore: refresh project cards and blog feed"
+            git push
+          fi
