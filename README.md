@@ -6,7 +6,7 @@
 -->
 
 <p align="center">
-<a href="https://jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg"><img src="assets/header-light.svg" alt="I build software that solves real problems. Self-hosted business software, high-performance developer tools, linux infrastructure."></picture></a>
+<a href="https://jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg"><img src="assets/header-light.svg" alt="James Conway's website. I build software that solves real problems. Self-hosted business software, high-performance developer tools, linux infrastructure."></picture></a>
 </p>
 
 <p align="center">
