@@ -13,6 +13,8 @@
 <a href="https://jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-web-dark.svg"><img src="assets/icon-web-light.svg" alt="jamesconway.dev" width="48"></picture></a>
 <a href="https://www.linkedin.com/in/jamesjconway/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-linkedin-dark.svg"><img src="assets/icon-linkedin-light.svg" alt="James Conway on LinkedIn" width="48"></picture></a>
 <a href="https://x.com/jamesconway"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-x-dark.svg"><img src="assets/icon-x-light.svg" alt="James Conway on X" width="48"></picture></a>
+<a href="https://mastodon.social/@jamesconway"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-mastodon-dark.svg"><img src="assets/icon-mastodon-light.svg" alt="James Conway on Mastodon" width="48"></picture></a>
+<a href="https://bsky.app/profile/jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-bluesky-dark.svg"><img src="assets/icon-bluesky-light.svg" alt="James Conway on Bluesky" width="48"></picture></a>
 </p>
 
 <p align="center">

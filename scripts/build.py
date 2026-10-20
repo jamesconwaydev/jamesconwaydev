@@ -78,7 +78,7 @@ def render(mode: str) -> dict[str, str]:
             files[f"assets/footer-{theme}.svg"] = footer_svg(theme)
             files[f"assets/button-follow-{theme}.svg"] = button_svg("FOLLOW ON GITHUB", theme, True, "plus")
             files[f"assets/button-star-{theme}.svg"] = button_svg("STAR A PROJECT BELOW", theme, False, "star")
-            for icon in ("web", "linkedin", "x"):
+            for icon in ("web", "linkedin", "x", "mastodon", "bluesky"):
                 files[f"assets/icon-{icon}-{theme}.svg"] = icon_svg(icon, theme)
     return files
 

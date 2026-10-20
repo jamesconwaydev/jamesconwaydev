@@ -17,7 +17,7 @@ def width(svg):
 class ChromeTest(unittest.TestCase):
     def test_icons_parse_both_themes(self):
         for theme in THEMES:
-            for name in ("web", "linkedin", "x"):
+            for name in ("web", "linkedin", "x", "mastodon", "bluesky"):
                 root = ET.fromstring(icon_svg(name, theme))
                 self.assertEqual((root.get("width"), root.get("height")), ("48", "48"))
 

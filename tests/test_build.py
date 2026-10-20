@@ -74,7 +74,7 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.run_quietly("all"), 0)
         readme = (self.tmp / "README.md").read_text()
         paths = re.findall(r'(?:src|srcset)="(assets/[^"]+)"', readme)
-        self.assertEqual(len(paths), 2 * 16)  # header, 3 icons, 2 buttons, 3 labels, 6 cards, footer
+        self.assertEqual(len(paths), 2 * 18)  # header, 5 icons, 2 buttons, 3 labels, 6 cards, footer
         for path in paths:
             self.assertTrue((self.tmp / path).is_file(), path)
 
