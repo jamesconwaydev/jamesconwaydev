@@ -26,9 +26,11 @@ def parse_feed(xml: str, limit: int = 3) -> list[Post]:
     posts = []
     for item in items:
         text = lambda tag: (item.findtext(tag) or "").strip()
-        posts.append((parsedate_to_datetime(text("pubDate")), Post(
-            title=text("title"), url=text("link"),
-            date=parsedate_to_datetime(text("pubDate")).date(), summary=text("description"),
+        when = parsedate_to_datetime(text("pubDate"))
+        if when.tzinfo is None:  # a "-0000" date parses naive; sorting needs them all aware
+            when = when.replace(tzinfo=datetime.timezone.utc)
+        posts.append((when, Post(
+            title=text("title"), url=text("link"), date=when.date(), summary=text("description"),
         )))
     posts.sort(key=lambda p: p[0], reverse=True)
     return [p for _, p in posts[:limit]]

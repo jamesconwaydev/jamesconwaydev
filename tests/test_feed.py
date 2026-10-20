@@ -17,6 +17,12 @@ class FeedTests(unittest.TestCase):
         self.assertEqual(posts[0].date, datetime.date(2026, 10, 10))
         self.assertEqual([p.date for p in posts], sorted((p.date for p in posts), reverse=True))
 
+    def test_mixed_timezones_sort(self):
+        item = lambda t, d: f"<item><title>{t}</title><link>u</link><description>s</description><pubDate>{d}</pubDate></item>"
+        xml = ("<rss><channel>" + item("naive", "Mon, 05 Oct 2026 10:00:00 -0000")
+               + item("aware", "Tue, 06 Oct 2026 10:00:00 GMT") + "</channel></rss>")
+        self.assertEqual([p.title for p in parse_feed(xml)], ["aware", "naive"])
+
     def test_entities_decoded(self):
         for p in parse_feed(XML):
             self.assertNotIn("&apos;", p.title + p.summary)
