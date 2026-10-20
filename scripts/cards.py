@@ -76,6 +76,11 @@ def fetch_repos(slugs: list[str], token: str) -> list[Repo]:
             payload = json.load(resp)
     except urllib.error.HTTPError as e:
         raise RuntimeError(f"GitHub GraphQL request failed: HTTP {e.code}") from e
+    except (urllib.error.URLError, TimeoutError) as e:
+        raise RuntimeError(f"GitHub GraphQL request failed: {getattr(e, 'reason', e)}") from e
+    # GraphQL reports rate limits, bad scopes and unknown repos with a 200 and an errors list.
+    if payload.get("errors"):
+        raise RuntimeError("GitHub GraphQL errors: " + "; ".join(e.get("message", "?") for e in payload["errors"]))
     return parse_repos(payload, slugs)
 
 

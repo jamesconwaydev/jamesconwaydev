@@ -55,6 +55,18 @@ class CardsTest(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "401"):
                 fetch_repos(SLUGS, "bad")
 
+    def test_graphql_errors_raise(self):
+        body = io.BytesIO(json.dumps({"data": None, "errors": [{"message": "API rate limit exceeded"}]}).encode())
+        with mock.patch("urllib.request.urlopen", return_value=body):
+            with self.assertRaisesRegex(RuntimeError, "API rate limit exceeded"):
+                fetch_repos(SLUGS, "tok")
+
+    def test_network_failure_raises(self):
+        for err in (urllib.error.URLError("nodename nor servname provided"), TimeoutError("timed out")):
+            with mock.patch("urllib.request.urlopen", side_effect=err):
+                with self.assertRaisesRegex(RuntimeError, "nodename|timed out"):
+                    fetch_repos(SLUGS, "tok")
+
     def test_ampersand_escaped(self):
         aegis = parse_repos(FIXTURE, SLUGS)[4]
         svg = card_svg(aegis, "dark")
