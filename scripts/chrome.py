@@ -1,4 +1,4 @@
-"""Social icons, the two call-to-action buttons and the rule at the foot of the README."""
+"""Social icons, call-to-action buttons, pillar labels and the rule at the foot of the README."""
 from xml.sax.saxutils import escape
 
 from scripts.fonts import FAMILY, font_face_css, text_width
@@ -23,6 +23,8 @@ SPACING = 1.4
 STAR_PATH = "M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"
 
 FOOT_W, FOOT_H, SQUARE = 900, 40, 12
+
+LABEL_H, LABEL_SIZE, LABEL_SPACING = 28, 13, 2
 
 
 def icon_svg(name: str, theme: str) -> str:
@@ -80,5 +82,21 @@ def footer_svg(theme: str) -> str:
 <title>End of profile</title>
 <rect y="{mid:g}" width="{FOOT_W}" height="1" fill="{c["line"]}"/>
 <rect x="{(FOOT_W - SQUARE) / 2:g}" y="{mid - SQUARE / 2:g}" width="{SQUARE}" height="{SQUARE}" fill="{c["green"]}"/>
+</svg>
+"""
+
+
+def label_svg(text: str, theme: str) -> str:
+    """The small green heading over each row of project cards."""
+    shown = f"▸ {text.upper()}"
+    width = round(text_width(shown, "mono-600", LABEL_SIZE, LABEL_SPACING) + 1, 2)
+    fonts = font_face_css({"mono-600": shown})
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width:g}" height="{LABEL_H}" viewBox="0 0 {width:g} {LABEL_H}" role="img">
+<title>{escape(text[:1].upper() + text[1:])}</title>
+<style>
+{fonts}
+.l{{font-family:{FAMILY["mono-600"]};font-weight:600;font-size:{LABEL_SIZE}px;letter-spacing:{LABEL_SPACING}px}}
+</style>
+<text y="20" class="l" fill="{THEMES[theme]["green"]}">{escape(shown)}</text>
 </svg>
 """

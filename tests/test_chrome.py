@@ -2,7 +2,7 @@ import unittest
 import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape
 
-from scripts.chrome import button_svg, footer_svg, icon_svg
+from scripts.chrome import button_svg, footer_svg, icon_svg, label_svg
 from tests.support import assert_self_contained
 
 THEMES = ("dark", "light")
@@ -48,9 +48,23 @@ class ChromeTest(unittest.TestCase):
             ET.fromstring(svg)
             self.assertIn("#10b981", svg)
 
+    def test_label_is_green_uppercase_mono(self):
+        for theme in THEMES:
+            svg = label_svg("linux infrastructure", theme)
+            root = ET.fromstring(svg)
+            self.assertEqual(root.get("height"), "28")
+            self.assertIn(">▸ LINUX INFRASTRUCTURE</text>", svg)
+            self.assertIn('fill="#10b981"', svg)
+            self.assertIn("<title>Linux infrastructure</title>", svg)
+
+    def test_label_width_tracks_text(self):
+        self.assertGreater(width(label_svg("high-performance developer tools", "dark")),
+                           width(label_svg("linux", "dark")))
+
     def test_no_external_refs(self):
         for theme in THEMES:
-            for svg in (icon_svg("x", theme), button_svg(FOLLOW[0], theme, True, "plus"), footer_svg(theme)):
+            for svg in (icon_svg("x", theme), button_svg(FOLLOW[0], theme, True, "plus"), footer_svg(theme),
+                        label_svg("linux infrastructure", theme)):
                 assert_self_contained(self, svg)
 
 
