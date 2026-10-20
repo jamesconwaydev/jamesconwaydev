@@ -1,4 +1,5 @@
 import unittest
+from unittest import mock
 
 from scripts.fonts import font_face_css, text_width
 
@@ -32,6 +33,13 @@ class FontsTest(unittest.TestCase):
     def test_deterministic(self):
         usage = {"sans-800": "Hello", "mono-600": "$ ls"}
         self.assertEqual(font_face_css(usage), font_face_css(usage))
+
+    def test_output_ignores_clock(self):
+        usage = {"mono-500": "$"}
+        with mock.patch("time.time", return_value=1e9):
+            first = font_face_css(usage)
+        with mock.patch("time.time", return_value=2e9):
+            self.assertEqual(font_face_css(usage), first)
 
 
 if __name__ == "__main__":

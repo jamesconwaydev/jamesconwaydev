@@ -44,7 +44,7 @@ def font_face_css(usage: dict[str, str]) -> str:
         _check(chars, key)
         opts = subset.Options(flavor="woff2", layout_features=["*"], notdef_outline=True)
         sub = subset.Subsetter(opts)
-        font = TTFont(FONTS[key])
+        font = TTFont(FONTS[key], recalcTimestamp=False)  # keep rebuilt assets byte-identical
         sub.populate(text="".join(sorted(chars)))
         sub.subset(font)
         font.flavor = "woff2"
