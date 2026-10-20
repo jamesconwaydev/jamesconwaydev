@@ -22,9 +22,12 @@ def _font(key: str) -> TTFont:
     return TTFont(FONTS[key])
 
 
+def has_glyph(char: str, key: str) -> bool:
+    return ord(char) in _font(key).getBestCmap()
+
+
 def _check(chars, key: str) -> None:
-    cmap = _font(key).getBestCmap()
-    missing = sorted({c for c in chars if not c.isspace() and ord(c) not in cmap})
+    missing = sorted({c for c in chars if not c.isspace() and not has_glyph(c, key)})
     if missing:
         raise ValueError(f"font {key!r} has no glyph for {''.join(missing)!r}")
 
