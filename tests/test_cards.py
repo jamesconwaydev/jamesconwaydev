@@ -6,8 +6,9 @@ import urllib.error
 from unittest import mock
 import xml.etree.ElementTree as ET
 
-from scripts.cards import FORK_PATH, Repo, card_filename, card_svg, fetch_repos, parse_repos
+from scripts.cards import FORK_PATH, NAME_SPACING, TEXT_W, Repo, card_filename, card_svg, fetch_repos, parse_repos
 from scripts.chrome import STAR_PATH
+from scripts.fonts import text_width
 from scripts.theme import ROOT
 from tests.support import SVG_NS, assert_self_contained
 
@@ -79,6 +80,13 @@ class CardsTest(unittest.TestCase):
         self.assertEqual(len(lines), 2)
         self.assertTrue(lines[1].text.endswith("…"))
         self.assertNotIn(" …", lines[1].text)
+
+    def test_long_name_clamped(self):
+        svg = card_svg(repo(name="a-very-long-repository-name-" * 2), "dark")
+        names = texts(svg, "n")
+        self.assertEqual(len(names), 1)
+        self.assertTrue(names[0].text.endswith("…"))
+        self.assertLessEqual(text_width(names[0].text, "sans-800", 20, NAME_SPACING), TEXT_W)
 
     def test_zero_counts_hidden(self):
         svg = card_svg(repo(stars=0, forks=0), "dark")

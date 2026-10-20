@@ -19,7 +19,7 @@ DESC, DESC_LINES = 13.5, 2
 ICON = 12      # star and fork
 SWATCH = 10
 ITEM_GAP = 16  # between meta items
-NAME_SPACING = -0.4
+NAME_SIZE, NAME_SPACING = 20, -0.4
 
 # Baselines, top to bottom. The meta row is pinned to the foot so it lines up
 # across a row of cards whatever the description length.
@@ -112,10 +112,21 @@ def _wrap(text: str) -> list[str]:
     return lines
 
 
+def _clamp_name(name: str) -> str:
+    def fits(text):
+        return text_width(text, "sans-800", NAME_SIZE, NAME_SPACING) <= TEXT_W
+
+    if fits(name):
+        return name
+    while name and not fits(name + "…"):
+        name = name[:-1]
+    return name.rstrip() + "…"
+
+
 def card_svg(repo: Repo, theme: str) -> str:
     c = THEMES[theme]
     owner = _clean(repo.owner, "mono-500") + " /"
-    name = _clean(repo.name, "sans-800")
+    name = _clamp_name(_clean(repo.name, "sans-800"))
     desc = _clean(repo.description, "sans-400")
     lines = _wrap(desc)
 
@@ -150,7 +161,7 @@ def card_svg(repo: Repo, theme: str) -> str:
 <style>
 {fonts}
 .m{{font-family:{FAMILY["mono-500"]};font-weight:500;font-size:12px}}
-.n{{font-family:{FAMILY["sans-800"]};font-weight:800;font-size:20px;letter-spacing:{NAME_SPACING}px}}
+.n{{font-family:{FAMILY["sans-800"]};font-weight:800;font-size:{NAME_SIZE}px;letter-spacing:{NAME_SPACING}px}}
 .d{{font-family:{FAMILY["sans-400"]};font-weight:400;font-size:{DESC}px}}
 </style>
 <rect x=".5" y=".5" width="{WIDTH - 1}" height="{HEIGHT - 1}" fill="{c["panel"]}" stroke="{c["line"]}"/>
