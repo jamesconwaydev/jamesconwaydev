@@ -47,6 +47,7 @@ jobs:
       # Scheduled runs are switched off after 60 quiet days, and days with
       # no content change leave no commit. Re-enabling resets that clock.
       - name: Keep schedule alive
+        if: always()
         run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/refresh.yml/enable"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
