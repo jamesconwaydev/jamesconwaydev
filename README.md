@@ -33,7 +33,7 @@
 
 <p>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/label-high-performance-developer-tools-dark.svg"><img src="assets/label-high-performance-developer-tools-light.svg" alt="High-performance developer tools"></picture><br>
-<a href="https://github.com/netweir/netweir"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-netweir-netweir-dark.svg"><img src="assets/card-netweir-netweir-light.svg" alt="netweir/netweir: Ultra-fast, self-healing, undetectable web scraping" width="400"></picture></a>
+<a href="https://github.com/netweir/netweir"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-netweir-netweir-dark.svg"><img src="assets/card-netweir-netweir-light.svg" alt="netweir/netweir: An ultra-fast, self-healing, undetectable web scraper. Rust does the work; you write Python." width="400"></picture></a>
 <a href="https://github.com/tachyon-cms/tachyoncms"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-tachyon-cms-tachyoncms-dark.svg"><img src="assets/card-tachyon-cms-tachyoncms-light.svg" alt="tachyon-cms/tachyoncms: Rust-powered, ultra-fast, highly secure headless CMS" width="400"></picture></a>
 </p>
 
