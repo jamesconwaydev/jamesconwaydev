@@ -47,11 +47,11 @@
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-10-23` · **[I Built the Smoke Detector Before the Fire](https://jamesconway.dev/blog/i-built-the-smoke-detector-before-the-fire/)**<br>Aegis v2 is an open-source eBPF tool that watches process behaviour on Rocky Linux 10, adds the warning signs into one score, and records one incident.
+
 `2026-10-10` · **[Apparently, I Don't Know How to Build Small Projects](https://jamesconway.dev/blog/apparently-i-dont-know-how-to-build-small-projects/)**<br>Sentrello wasn't enough, so I built NetWeir: a Rust-core, Python-API web scraper, days old and public on GitHub. One more project still to come.
 
 `2026-10-05` · **[I'm the Worst at Creative Writing](https://jamesconway.dev/blog/im-the-worst-at-creative-writing/)**<br>Twenty-eight years in IT, not one blog post. Then May happened: a layoff, an open-source platform called Sentrello, and a reason to start writing.
-
-`2026-06-26` · **[Astro 7 Starter Theme: Production-Ready Blueprint (Tailwind 4 + Full SEO)](https://jamesconway.dev/blog/astro-7-starter-theme/)**<br>A copy-paste Astro 7 + Tailwind 4 starter theme with full JSON-LD SEO, RSS, sitemap, oklch design tokens, and a custom 404.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->
