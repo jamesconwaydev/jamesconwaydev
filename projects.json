@@ -1,5 +1,6 @@
 [
-  {"pillar": "self-hosted business software", "repos": ["Sentrello/Sentrello", "ticketslinger/ticketslinger"]},
+  {"pillar": "featured project", "featured": true, "repos": ["conn3xorg/conn3x"]},
   {"pillar": "high-performance developer tools", "repos": ["netweir/netweir", "tachyon-cms/tachyoncms"]},
-  {"pillar": "linux infrastructure", "repos": ["jamesconwaydev/aegis-v2", "jamesconwaydev/sentry-v2"]}
+  {"pillar": "linux infrastructure", "repos": ["jamesconwaydev/aegis-v2", "jamesconwaydev/sentry-v2"]},
+  {"pillar": "self-hosted business software", "repos": ["Sentrello/Sentrello", "ticketslinger/ticketslinger"]}
 ]

@@ -30,13 +30,14 @@ def texts(svg, cls):
 class CardsTest(unittest.TestCase):
     def test_parse_fixture(self):
         repos = parse_repos(FIXTURE, SLUGS)
-        self.assertEqual(len(repos), 6)
-        self.assertEqual((repos[0].owner, repos[0].name), ("Sentrello", "Sentrello"))
-        self.assertGreaterEqual(repos[0].stars, 11)
+        self.assertEqual(len(repos), 7)
+        self.assertEqual((repos[0].owner, repos[0].name), ("conn3xorg", "conn3x"))
+        sentrello = repos[SLUGS.index("Sentrello/Sentrello")]
+        self.assertGreaterEqual(sentrello.stars, 11)
 
     def test_missing_repo_raises(self):
         payload = json.loads(json.dumps(FIXTURE))
-        payload["data"]["r5"] = None
+        payload["data"][f"r{SLUGS.index('jamesconwaydev/sentry-v2')}"] = None
         with self.assertRaisesRegex(RuntimeError, "jamesconwaydev/sentry-v2"):
             parse_repos(payload, SLUGS)
 
@@ -48,7 +49,7 @@ class CardsTest(unittest.TestCase):
         self.assertEqual(req.get_header("Authorization"), "bearer tok")
         self.assertTrue(req.get_header("User-agent"))
         self.assertIn('repository(owner: "netweir", name: "netweir")', json.loads(req.data)["query"])
-        self.assertEqual(len(repos), 6)
+        self.assertEqual(len(repos), 7)
 
     def test_fetch_http_error_raises(self):
         err = urllib.error.HTTPError("https://api.github.com/graphql", 401, "Unauthorized", {}, None)
@@ -69,7 +70,7 @@ class CardsTest(unittest.TestCase):
                     fetch_repos(SLUGS, "tok")
 
     def test_ampersand_escaped(self):
-        aegis = parse_repos(FIXTURE, SLUGS)[4]
+        aegis = parse_repos(FIXTURE, SLUGS)[SLUGS.index("jamesconwaydev/aegis-v2")]
         svg = card_svg(aegis, "dark")
         ET.fromstring(svg)
         self.assertIn("&amp;", svg)
@@ -111,6 +112,14 @@ class CardsTest(unittest.TestCase):
 
     def test_filename(self):
         self.assertEqual(card_filename(repo(), "dark"), "card-sentrello-sentrello-dark.svg")
+
+    def test_featured_card_is_wide_with_a_green_rule(self):
+        svg = card_svg(repo(description=" ".join(["pressure"] * 20)), "dark", featured=True)
+        root = ET.fromstring(svg)
+        self.assertEqual((root.get("width"), root.get("height")), ("804", "140"))
+        self.assertIn('<rect width="804" height="4" fill="#10b981"/>', svg)
+        self.assertNotIn("…", svg)  # 160 characters fit in two wide lines
+        self.assertEqual(card_filename(repo(), "light", featured=True), "card-sentrello-sentrello-featured-light.svg")
 
     def test_real_cards(self):
         for r in parse_repos(FIXTURE, SLUGS):

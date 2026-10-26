@@ -1,7 +1,7 @@
 """Rebuild the README's generated blocks and every SVG it points at.
 
     python -m scripts.build refresh   cards, pillar labels, README
-    python -m scripts.build all       all of that, plus header, icons, buttons, footer
+    python -m scripts.build all       all of that, plus header, icons, follow pointer, footer
 
 Everything is fetched and rendered in memory first, so a failed request
 leaves the repo exactly as it was.
@@ -14,8 +14,8 @@ import subprocess
 import sys
 from html import escape
 
-from scripts.cards import card_filename, card_svg, fetch_repos
-from scripts.chrome import button_svg, footer_svg, icon_svg, label_svg
+from scripts.cards import FEATURED_WIDTH, card_filename, card_svg, fetch_repos
+from scripts.chrome import follow_svg, footer_svg, icon_svg, label_svg
 from scripts.feed import fetch_feed, parse_feed, posts_markdown, replace_block
 from scripts.header import header_svg
 from scripts.theme import ROOT
@@ -43,16 +43,23 @@ def picture(name: str, alt: str, width: int | None = None) -> str:
             f'<img src="assets/{name}-light.svg" alt="{escape(alt)}"{size}></picture>')
 
 
+def card_link(r, featured: bool = False) -> str:
+    alt = f"{r.owner}/{r.name}" + (f": {r.description}" if r.description else "")
+    name = card_filename(r, "dark", featured).removesuffix("-dark.svg")
+    return f'<a href="{escape(r.url)}">{picture(name, alt, FEATURED_WIDTH if featured else 400)}</a>'
+
+
+def featured_block(projects: list[dict], repos: dict) -> str:
+    return "\n".join(f"<p>\n{card_link(repos[s], True)}\n</p>"
+                     for group in projects if group.get("featured") for s in group["repos"])
+
+
 def cards_block(projects: list[dict], repos: dict) -> str:
     rows = []
-    for group in projects:
+    for group in (g for g in projects if not g.get("featured")):
         pillar = group["pillar"]
         lines = [picture(f"label-{slug(pillar)}", pillar[:1].upper() + pillar[1:]) + "<br>"]
-        for s in group["repos"]:
-            r = repos[s]
-            alt = f"{r.owner}/{r.name}" + (f": {r.description}" if r.description else "")
-            name = card_filename(r, "dark").removesuffix("-dark.svg")
-            lines.append(f'<a href="{escape(r.url)}">{picture(name, alt, 400)}</a>')
+        lines += [card_link(repos[s]) for s in group["repos"]]
         rows.append("<p>\n" + "\n".join(lines) + "\n</p>")
     return "\n\n".join(rows)
 
@@ -65,19 +72,21 @@ def render(mode: str) -> dict[str, str]:
     posts = parse_feed(fetch_feed())
 
     readme = (ROOT / "README.md").read_text()
+    readme = replace_block(readme, featured_block(projects, repos), "FEATURED")
     readme = replace_block(readme, cards_block(projects, repos), "CARDS")
     files = {"README.md": replace_block(readme, posts_markdown(posts), "BLOG")}
 
     for theme in THEMES:
-        for repo in repos.values():
-            files[f"assets/{card_filename(repo, theme)}"] = card_svg(repo, theme)
         for group in projects:
-            files[f"assets/label-{slug(group['pillar'])}-{theme}.svg"] = label_svg(group["pillar"], theme)
+            featured = bool(group.get("featured"))
+            for s in group["repos"]:
+                files[f"assets/{card_filename(repos[s], theme, featured)}"] = card_svg(repos[s], theme, featured)
+            if not featured:
+                files[f"assets/label-{slug(group['pillar'])}-{theme}.svg"] = label_svg(group["pillar"], theme)
         if mode == "all":
             files[f"assets/header-{theme}.svg"] = header_svg(theme)
             files[f"assets/footer-{theme}.svg"] = footer_svg(theme)
-            files[f"assets/button-follow-{theme}.svg"] = button_svg("FOLLOW ON GITHUB", theme, True, "plus")
-            files[f"assets/button-star-{theme}.svg"] = button_svg("STAR A PROJECT BELOW", theme, False, "star")
+            files[f"assets/follow-{theme}.svg"] = follow_svg(theme)
             for icon in ("web", "linkedin", "x", "mastodon", "bluesky"):
                 files[f"assets/icon-{icon}-{theme}.svg"] = icon_svg(icon, theme)
     return files

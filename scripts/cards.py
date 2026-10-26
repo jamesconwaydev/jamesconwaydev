@@ -13,6 +13,7 @@ API = "https://api.github.com/graphql"
 FIELDS = "owner { login } name description url stargazerCount forkCount primaryLanguage { name color }"
 
 WIDTH, HEIGHT = 400, 140
+FEATURED_WIDTH = 804  # two cards and the gap between them
 PAD = 20
 TEXT_W = WIDTH - 2 * PAD
 DESC, DESC_LINES = 13.5, 2
@@ -84,8 +85,9 @@ def fetch_repos(slugs: list[str], token: str) -> list[Repo]:
     return parse_repos(payload, slugs)
 
 
-def card_filename(repo: Repo, theme: str) -> str:
-    return f"card-{repo.owner}-{repo.name}-{theme}.svg".lower()
+def card_filename(repo: Repo, theme: str, featured: bool = False) -> str:
+    kind = "-featured" if featured else ""
+    return f"card-{repo.owner}-{repo.name}{kind}-{theme}.svg".lower()
 
 
 def _clean(text: str, font: str) -> str:
@@ -93,9 +95,9 @@ def _clean(text: str, font: str) -> str:
     return " ".join("".join(c for c in text if c.isspace() or has_glyph(c, font)).split())
 
 
-def _wrap(text: str) -> list[str]:
+def _wrap(text: str, text_w: float = TEXT_W) -> list[str]:
     def fits(line):
-        return text_width(line, "sans-400", DESC) <= TEXT_W
+        return text_width(line, "sans-400", DESC) <= text_w
 
     lines, words = [], text.split()
     while words and len(lines) < DESC_LINES:
@@ -112,9 +114,9 @@ def _wrap(text: str) -> list[str]:
     return lines
 
 
-def _clamp_name(name: str) -> str:
+def _clamp_name(name: str, text_w: float = TEXT_W) -> str:
     def fits(text):
-        return text_width(text, "sans-800", NAME_SIZE, NAME_SPACING) <= TEXT_W
+        return text_width(text, "sans-800", NAME_SIZE, NAME_SPACING) <= text_w
 
     if fits(name):
         return name
@@ -123,12 +125,15 @@ def _clamp_name(name: str) -> str:
     return name.rstrip() + "…"
 
 
-def card_svg(repo: Repo, theme: str) -> str:
+def card_svg(repo: Repo, theme: str, featured: bool = False) -> str:
+    """A 400px card, or the full-width featured one with a green rule along the top."""
     c = THEMES[theme]
+    width = FEATURED_WIDTH if featured else WIDTH
+    text_w = width - 2 * PAD
     owner = _clean(repo.owner, "mono-500") + " /"
-    name = _clamp_name(_clean(repo.name, "sans-800"))
+    name = _clamp_name(_clean(repo.name, "sans-800"), text_w)
     desc = _clean(repo.description, "sans-400")
-    lines = _wrap(desc)
+    lines = _wrap(desc, text_w)
 
     meta, mono_text, x = [], owner, PAD
     icon_y = Y_META - 4 - ICON / 2  # centre on the mono x-height
@@ -153,10 +158,11 @@ def card_svg(repo: Repo, theme: str) -> str:
         for i, line in enumerate(lines)
     )
     title = f"{repo.owner}/{repo.name}" + (f": {repo.description}" if repo.description else "")
+    accent = f'<rect width="{width}" height="4" fill="{c["green"]}"/>\n' if featured else ""
     fonts = font_face_css({k: v for k, v in {
         "mono-500": mono_text, "sans-800": name, "sans-400": "".join(lines),
     }.items() if v})
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{HEIGHT}" viewBox="0 0 {width} {HEIGHT}" role="img">
 <title>{escape(title)}</title>
 <style>
 {fonts}
@@ -164,8 +170,8 @@ def card_svg(repo: Repo, theme: str) -> str:
 .n{{font-family:{FAMILY["sans-800"]};font-weight:800;font-size:{NAME_SIZE}px;letter-spacing:{NAME_SPACING}px}}
 .d{{font-family:{FAMILY["sans-400"]};font-weight:400;font-size:{DESC}px}}
 </style>
-<rect x=".5" y=".5" width="{WIDTH - 1}" height="{HEIGHT - 1}" fill="{c["panel"]}" stroke="{c["line"]}"/>
-<text x="{PAD}" y="{Y_OWNER}" class="m" fill="{c["muted"]}">{escape(owner)}</text>
+<rect x=".5" y=".5" width="{width - 1}" height="{HEIGHT - 1}" fill="{c["panel"]}" stroke="{c["line"]}"/>
+{accent}<text x="{PAD}" y="{Y_OWNER}" class="m" fill="{c["muted"]}">{escape(owner)}</text>
 <text x="{PAD}" y="{Y_NAME}" class="n" fill="{c["ink"]}">{escape(name)}</text>
 {desc_svg}
 {"".join(meta)}

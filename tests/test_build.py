@@ -17,8 +17,10 @@ RSS = (FIXTURES / "rss.xml").read_text()
 
 
 def fake_repos(slugs, token):
-    # The fixture answers r0..r5 in projects.json order, so a trimmed list still lines up.
-    return parse_repos(PAYLOAD, slugs)
+    # Look each slug up by name, so any order or subset of projects.json works.
+    every = parse_repos(PAYLOAD, [f"r{i}" for i in range(len(PAYLOAD["data"]))])
+    by_slug = {f"{r.owner}/{r.name}": r for r in every}
+    return [by_slug[s] for s in slugs]
 
 
 def snapshot(root: Path) -> dict[str, bytes]:
@@ -74,7 +76,7 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.run_quietly("all"), 0)
         readme = (self.tmp / "README.md").read_text()
         paths = re.findall(r'(?:src|srcset)="(assets/[^"]+)"', readme)
-        self.assertEqual(len(paths), 2 * 18)  # header, 5 icons, 2 buttons, 3 labels, 6 cards, footer
+        self.assertEqual(len(paths), 2 * 18)  # header, 5 icons, follow, 3 labels, 7 cards, footer
         for path in paths:
             self.assertTrue((self.tmp / path).is_file(), path)
 
@@ -86,9 +88,20 @@ class BuildTest(unittest.TestCase):
         self.assertIn('alt="Self-hosted business software"', readme)
         self.assertIn("Read the rest on jamesconway.dev", readme)
 
+    def test_featured_sits_above_the_pillars(self):
+        self.assertEqual(self.run_quietly("refresh"), 0)
+        readme = (self.tmp / "README.md").read_text()
+        featured = readme.index('srcset="assets/card-conn3xorg-conn3x-featured-dark.svg"')
+        self.assertLess(featured, readme.index("## My Top Open Source Projects"))
+        self.assertIn('width="804"', readme[featured:readme.index("<!-- FEATURED:END -->")])
+        self.assertNotIn("label-featured-project", readme)
+        pillars = [readme.index(f"label-{p}-dark") for p in
+                   ("high-performance-developer-tools", "linux-infrastructure", "self-hosted-business-software")]
+        self.assertEqual(pillars, sorted(pillars))
+
     def test_trimmed_projects_drop_stale_assets(self):
         projects = json.loads((self.tmp / "projects.json").read_text())
-        (self.tmp / "projects.json").write_text(json.dumps(projects[:1]))
+        (self.tmp / "projects.json").write_text(json.dumps(projects[-1:]))
         self.assertEqual(self.run_quietly("refresh"), 0)
         assets = self.tmp / "assets"
         names = sorted(p.name for p in [*assets.glob("card-*.svg"), *assets.glob("label-*.svg")])

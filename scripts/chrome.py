@@ -1,4 +1,4 @@
-"""Social icons, call-to-action buttons, pillar labels and the rule at the foot of the README."""
+"""Social icons, the follow pointer, pillar labels and the rule at the foot of the README."""
 from xml.sax.saxutils import escape
 
 from scripts.fonts import FAMILY, font_face_css, text_width
@@ -16,11 +16,8 @@ GLYPHS = {
 }
 TITLES = {"web": "jamesconway.dev", "linkedin": "LinkedIn", "x": "X", "mastodon": "Mastodon", "bluesky": "Bluesky"}
 
-BUTTON_H = 44
-PAD = 20
-MARK = 14      # plus and star share one square
-GAP = 10       # between the mark and the label
-SPACING = 1.4
+FOLLOW_H, FOLLOW_SIZE, SPACING = 44, 15, 1.4
+ARROW, GAP = 72, 14  # arrow length, then the space before the words
 # Octicons star-fill-16 (MIT), drawn on a 16px grid.
 STAR_PATH = "M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"
 
@@ -45,34 +42,22 @@ def icon_svg(name: str, theme: str) -> str:
 """
 
 
-def button_svg(label: str, theme: str, solid: bool, icon: str | None = None) -> str:
+def follow_svg(theme: str) -> str:
+    """An arrow pointing left, at the Follow button in GitHub's profile sidebar."""
     c = THEMES[theme]
-    ink = "#0d1117" if solid else c["ink"]
-    fill, stroke = (c["green"], c["green"]) if solid else (c["bg"], c["line"])
-    title = {"plus": "Follow James Conway on GitHub", "star": "Star a project below"}.get(icon, label)
-    text_w = text_width(label, "mono-600", 14, SPACING)
-    lead = MARK + GAP if icon else 0
-    width = round(PAD + lead + text_w + PAD, 2)
-    y = BUTTON_H / 2 - MARK / 2
-
-    if icon == "plus":  # two square-ended bars
-        mark = (f'<rect x="{PAD}" y="{BUTTON_H / 2 - 1}" width="{MARK}" height="2" fill="{ink}"/>'
-                f'<rect x="{PAD + MARK / 2 - 1}" y="{y}" width="2" height="{MARK}" fill="{ink}"/>')
-    elif icon == "star":
-        mark = f'<path transform="translate({PAD} {y}) scale({MARK / 16})" fill="{ink}" d="{STAR_PATH}"/>'
-    else:
-        mark = ""
-
+    label = "FOLLOW ME"
+    width = round(ARROW + GAP + text_width(label, "mono-600", FOLLOW_SIZE, SPACING) + 1, 2)
+    mid = FOLLOW_H / 2
     fonts = font_face_css({"mono-600": label})
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width:g}" height="{BUTTON_H}" viewBox="0 0 {width:g} {BUTTON_H}" role="img">
-<title>{escape(title)}</title>
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width:g}" height="{FOLLOW_H}" viewBox="0 0 {width:g} {FOLLOW_H}" role="img">
+<title>Follow me: the button is in the sidebar to the left</title>
 <style>
 {fonts}
-.b{{font-family:{FAMILY["mono-600"]};font-weight:600;font-size:14px;letter-spacing:{SPACING}px}}
+.f{{font-family:{FAMILY["mono-600"]};font-weight:600;font-size:{FOLLOW_SIZE}px;letter-spacing:{SPACING}px}}
 </style>
-<rect x=".5" y=".5" width="{width - 1:g}" height="{BUTTON_H - 1}" fill="{fill}" stroke="{stroke}"/>
-{mark}
-<text x="{PAD + lead}" y="27" class="b" fill="{ink}">{escape(label)}</text>
+<rect x="8" y="{mid - 1:g}" width="{ARROW - 8}" height="2" fill="{c["green"]}"/>
+<path d="M0 {mid:g}L12 {mid - 7:g}V{mid + 7:g}Z" fill="{c["green"]}"/>
+<text x="{ARROW + GAP}" y="{mid + 5:g}" class="f" fill="{c["ink"]}">{label}</text>
 </svg>
 """
 
