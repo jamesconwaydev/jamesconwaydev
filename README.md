@@ -54,11 +54,11 @@
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-10-25` · **[Two Tools, One Job: Why I Started Building Conn3x](https://jamesconway.dev/blog/why-i-started-conn3x/)**<br>I've started building Conn3x: one Go binary that creates your servers and configures them in the same plan. It's early, and I'm aiming for the CNCF.
+
 `2026-10-23` · **[I Built the Smoke Detector Before the Fire](https://jamesconway.dev/blog/i-built-the-smoke-detector-before-the-fire/)**<br>Aegis v2 is an open-source eBPF tool that watches process behaviour on Rocky Linux 10, adds the warning signs into one score, and records one incident.
 
 `2026-10-10` · **[Apparently, I Don't Know How to Build Small Projects](https://jamesconway.dev/blog/apparently-i-dont-know-how-to-build-small-projects/)**<br>Sentrello wasn't enough, so I built NetWeir: a Rust-core, Python-API web scraper, days old and public on GitHub. One more project still to come.
-
-`2026-10-05` · **[I'm the Worst at Creative Writing](https://jamesconway.dev/blog/im-the-worst-at-creative-writing/)**<br>Twenty-eight years in IT, not one blog post. Then May happened: a layoff, an open-source platform called Sentrello, and a reason to start writing.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->
