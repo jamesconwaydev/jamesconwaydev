@@ -14,7 +14,7 @@ COPY = [
     "real problems.",
     "self-hosted business software",
     "high-performance developer tools",
-    "linux infrastructure",
+    "linux and windows infrastructure",
 ]
 THEMES = ("dark", "light")
 
@@ -52,7 +52,7 @@ class HeaderTest(unittest.TestCase):
         root = ET.fromstring(header_svg("dark"))
         title = root.find("{http://www.w3.org/2000/svg}title").text
         self.assertEqual(title, "I build software that solves real problems. Self-hosted "
-                         "business software, high-performance developer tools, linux infrastructure.")
+                         "business software, high-performance developer tools, linux and windows infrastructure.")
 
 
 if __name__ == "__main__":

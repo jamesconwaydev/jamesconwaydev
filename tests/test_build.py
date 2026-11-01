@@ -9,6 +9,8 @@ from unittest import mock
 
 from scripts import build
 from scripts.cards import parse_repos
+from scripts.feature import OrgCounts
+from scripts.stats import PublicRepo, Stats
 from scripts.theme import ROOT
 
 FIXTURES = ROOT / "tests" / "fixtures"
@@ -23,6 +25,14 @@ def fake_repos(slugs, token):
     return [by_slug[s] for s in slugs]
 
 
+STATS = Stats(commits=10, prs=5, issues=3, lines=1_500_000, repos=[
+    PublicRepo("conn3xorg/conn3x", "conn3x", "https://github.com/conn3xorg/conn3x", 6, False,
+               "conn3xorg", True, "Conn3x", "https://example.test/a.png"),
+    PublicRepo("jamesconwaydev/aegis-v2", "aegis-v2", "https://github.com/jamesconwaydev/aegis-v2", 0, False,
+               "jamesconwaydev", False, "jamesconwaydev", "https://example.test/b.png"),
+])
+
+
 def snapshot(root: Path) -> dict[str, bytes]:
     return {str(p.relative_to(root)): p.read_bytes() for p in sorted(root.rglob("*")) if p.is_file()}
 
@@ -32,12 +42,15 @@ class BuildTest(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.tmp)
         shutil.copytree(ROOT / "assets", self.tmp / "assets")
-        for name in ("README.md", "projects.json"):
+        for name in ("README.md", "projects.json", "contributed.json"):
             shutil.copy(ROOT / name, self.tmp / name)
         for patch in (mock.patch.object(build, "ROOT", self.tmp),
                       mock.patch.dict(os.environ, {"GITHUB_TOKEN": "test-token"}),
                       mock.patch.object(build, "fetch_repos", side_effect=fake_repos),
-                      mock.patch.object(build, "fetch_feed", return_value=RSS)):
+                      mock.patch.object(build, "fetch_feed", return_value=RSS),
+                      mock.patch.object(build, "fetch_stats", return_value=STATS),
+                      mock.patch.object(build, "fetch_org_counts", return_value=OrgCounts(106, 101)),
+                      mock.patch.object(build, "fetch_avatar", return_value="data:image/png;base64,AAAA")):
             patch.start()
             self.addCleanup(patch.stop)
 
@@ -76,27 +89,30 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.run_quietly("all"), 0)
         readme = (self.tmp / "README.md").read_text()
         paths = re.findall(r'(?:src|srcset)="(assets/[^"]+)"', readme)
-        self.assertEqual(len(paths), 2 * 18)  # header, 5 icons, follow, 3 labels, 7 cards, footer
+        self.assertEqual(len(paths), 2 * 17)  # header, 5 icons, stats, feature, 2 labels, 4 cards, 2 tiles, footer
         for path in paths:
             self.assertTrue((self.tmp / path).is_file(), path)
 
     def test_readme_blocks_filled(self):
         self.assertEqual(self.run_quietly("refresh"), 0)
         readme = (self.tmp / "README.md").read_text()
-        self.assertIn('<a href="https://github.com/Sentrello/Sentrello"><picture>', readme)
-        self.assertIn('srcset="assets/label-self-hosted-business-software-dark.svg"', readme)
-        self.assertIn('alt="Self-hosted business software"', readme)
+        self.assertIn('<a href="https://github.com/netweir/netweir"><picture>', readme)
+        self.assertNotIn("github.com/Sentrello", readme)
+        self.assertIn('srcset="assets/label-linux-infrastructure-dark.svg"', readme)
+        self.assertIn("1.5M lines of code", readme)
+        self.assertIn('srcset="assets/repo-conn3xorg-dark.svg"', readme)
+        self.assertNotIn("follow-", readme)
         self.assertIn("Read the rest on jamesconway.dev", readme)
 
     def test_featured_sits_above_the_pillars(self):
         self.assertEqual(self.run_quietly("refresh"), 0)
         readme = (self.tmp / "README.md").read_text()
-        featured = readme.index('srcset="assets/card-conn3xorg-conn3x-featured-dark.svg"')
+        featured = readme.index('srcset="assets/feature-conn3x-dark.svg"')
         self.assertLess(featured, readme.index("## My Top Open Source Projects"))
-        self.assertIn('width="804"', readme[featured:readme.index("<!-- FEATURED:END -->")])
+        self.assertIn('width="832"', readme[featured:readme.index("<!-- FEATURED:END -->")])
         self.assertNotIn("label-featured-project", readme)
         pillars = [readme.index(f"label-{p}-dark") for p in
-                   ("high-performance-developer-tools", "linux-infrastructure", "self-hosted-business-software")]
+                   ("high-performance-developer-tools", "linux-infrastructure")]
         self.assertEqual(pillars, sorted(pillars))
 
     def test_trimmed_projects_drop_stale_assets(self):
@@ -106,9 +122,9 @@ class BuildTest(unittest.TestCase):
         assets = self.tmp / "assets"
         names = sorted(p.name for p in [*assets.glob("card-*.svg"), *assets.glob("label-*.svg")])
         self.assertEqual(names, [
-            "card-sentrello-sentrello-dark.svg", "card-sentrello-sentrello-light.svg",
-            "card-ticketslinger-ticketslinger-dark.svg", "card-ticketslinger-ticketslinger-light.svg",
-            "label-self-hosted-business-software-dark.svg", "label-self-hosted-business-software-light.svg",
+            "card-jamesconwaydev-aegis-v2-dark.svg", "card-jamesconwaydev-aegis-v2-light.svg",
+            "card-jamesconwaydev-sentry-v2-dark.svg", "card-jamesconwaydev-sentry-v2-light.svg",
+            "label-linux-infrastructure-dark.svg", "label-linux-infrastructure-light.svg",
         ])
         self.assertTrue((self.tmp / "assets" / "header-dark.svg").is_file())
         self.assertNotIn("netweir", (self.tmp / "README.md").read_text())

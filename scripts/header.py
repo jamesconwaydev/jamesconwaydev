@@ -7,7 +7,7 @@ from scripts.theme import THEMES
 TITLE_BAR = "jamesconwaydev@github: ~"
 COMMAND = "whoami"
 HEADLINE = ("I build software that solves", "real problems.")
-LINES = ("self-hosted business software", "high-performance developer tools", "linux infrastructure")
+LINES = ("self-hosted business software", "high-performance developer tools", "linux and windows infrastructure")
 
 WIDTH = 900
 INSET = 30     # page background around the panel

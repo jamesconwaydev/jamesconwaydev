@@ -1,12 +1,12 @@
 <!--
-  Most of this file is hand-written, but not all of it. The project cards
-  between the FEATURED and CARDS markers, and the posts between the BLOG
-  markers, get rewritten by `python -m scripts.build refresh`, so any edit
-  you make in there will vanish on the next run. Change projects.json to swap projects.
+  Most of this file is hand-written, but not all of it. Everything between the
+  STATS, FEATURED, CARDS, REPOS and BLOG markers gets rewritten by
+  `python -m scripts.build refresh`, so any edit you make in there will vanish
+  on the next run. Change projects.json to swap projects.
 -->
 
 <p align="center">
-<a href="https://jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg"><img src="assets/header-light.svg" alt="James Conway's website. I build software that solves real problems. Self-hosted business software, high-performance developer tools, linux infrastructure."></picture></a>
+<a href="https://jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg"><img src="assets/header-light.svg" alt="James Conway's website. I build software that solves real problems. Self-hosted business software, high-performance developer tools, linux and windows infrastructure."></picture></a>
 </p>
 
 <p align="center">
@@ -17,15 +17,22 @@
 <a href="https://bsky.app/profile/jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-bluesky-dark.svg"><img src="assets/icon-bluesky-light.svg" alt="James Conway on Bluesky" width="48"></picture></a>
 </p>
 
+<!-- STATS:START -->
 <p align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/follow-dark.svg"><img src="assets/follow-light.svg" alt="Follow me: the button is in the sidebar to the left"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 1,891 commits, 866 pull requests, 298 issues, 120 repos contributed, 2.6M lines of code, 11,737 stars." width="832"></picture>
 </p>
+<!-- STATS:END -->
 
 ## Featured Project
 
 <!-- FEATURED:START -->
 <p>
-<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-conn3xorg-conn3x-featured-dark.svg"><img src="assets/card-conn3xorg-conn3x-featured-light.svg" alt="conn3xorg/conn3x: One binary to provision and configure your infrastructure." width="804"></picture></a>
+<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 101 circuits, 106 repos in the org." width="832"></picture></a>
+</p>
+
+<p align="center">
+<code>brew install conn3xorg/tap/conn3x</code><br>
+<a href="https://conn3x.org">Website</a> · <a href="https://docs.conn3x.org/get-started">Docs</a> · <a href="https://conn3x.org/circuits">Circuits</a> · <a href="https://github.com/conn3xorg/conn3x">GitHub</a>
 </p>
 <!-- FEATURED:END -->
 
@@ -34,22 +41,34 @@
 <!-- CARDS:START -->
 <p>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/label-high-performance-developer-tools-dark.svg"><img src="assets/label-high-performance-developer-tools-light.svg" alt="High-performance developer tools"></picture><br>
-<a href="https://github.com/netweir/netweir"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-netweir-netweir-dark.svg"><img src="assets/card-netweir-netweir-light.svg" alt="netweir/netweir: An ultra-fast, self-healing, undetectable web scraper. Rust does the work; you write Python." width="400"></picture></a>
-<a href="https://github.com/tachyon-cms/tachyoncms"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-tachyon-cms-tachyoncms-dark.svg"><img src="assets/card-tachyon-cms-tachyoncms-light.svg" alt="tachyon-cms/tachyoncms: Rust-powered, ultra-fast, highly secure headless CMS" width="400"></picture></a>
+<a href="https://github.com/netweir/netweir"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-netweir-netweir-dark.svg"><img src="assets/card-netweir-netweir-light.svg" alt="netweir/netweir: An ultra-fast, self-healing, undetectable web scraper. Rust does the work; you write Python." width="400"></picture></a>&emsp;&emsp;<a href="https://github.com/tachyon-cms/tachyoncms"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-tachyon-cms-tachyoncms-dark.svg"><img src="assets/card-tachyon-cms-tachyoncms-light.svg" alt="tachyon-cms/tachyoncms: Rust-powered, ultra-fast, highly secure headless CMS" width="400"></picture></a>
 </p>
+
+<br>
 
 <p>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/label-linux-infrastructure-dark.svg"><img src="assets/label-linux-infrastructure-light.svg" alt="Linux infrastructure"></picture><br>
-<a href="https://github.com/jamesconwaydev/aegis-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-jamesconwaydev-aegis-v2-dark.svg"><img src="assets/card-jamesconwaydev-aegis-v2-light.svg" alt="jamesconwaydev/aegis-v2: Runtime threat detection for Rocky Linux 10, built on eBPF and Rust." width="400"></picture></a>
-<a href="https://github.com/jamesconwaydev/sentry-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-jamesconwaydev-sentry-v2-dark.svg"><img src="assets/card-jamesconwaydev-sentry-v2-light.svg" alt="jamesconwaydev/sentry-v2: Watches cgroup v2 pressure, systemd failures and SELinux denials on Rocky/RHEL 10, and applies reversible, time-boxed fixes before the OOM killer has to." width="400"></picture></a>
-</p>
-
-<p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/label-self-hosted-business-software-dark.svg"><img src="assets/label-self-hosted-business-software-light.svg" alt="Self-hosted business software"></picture><br>
-<a href="https://github.com/Sentrello/Sentrello"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-sentrello-sentrello-dark.svg"><img src="assets/card-sentrello-sentrello-light.svg" alt="Sentrello/Sentrello: Unified Business Management Platform (UBM)" width="400"></picture></a>
-<a href="https://github.com/ticketslinger/ticketslinger"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-ticketslinger-ticketslinger-dark.svg"><img src="assets/card-ticketslinger-ticketslinger-light.svg" alt="ticketslinger/ticketslinger: The worlds greatest open-source ticket selling platform in the making." width="400"></picture></a>
+<a href="https://github.com/jamesconwaydev/aegis-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-jamesconwaydev-aegis-v2-dark.svg"><img src="assets/card-jamesconwaydev-aegis-v2-light.svg" alt="jamesconwaydev/aegis-v2: Runtime threat detection for Rocky Linux 10, built on eBPF and Rust." width="400"></picture></a>&emsp;&emsp;<a href="https://github.com/jamesconwaydev/sentry-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-jamesconwaydev-sentry-v2-dark.svg"><img src="assets/card-jamesconwaydev-sentry-v2-light.svg" alt="jamesconwaydev/sentry-v2: Watches cgroup v2 pressure, systemd failures and SELinux denials on Rocky/RHEL 10, and applies reversible, time-boxed fixes before the OOM killer has to." width="400"></picture></a>
 </p>
 <!-- CARDS:END -->
+
+## Projects I Build and Contribute To
+
+<!-- REPOS:START -->
+<p align="center">
+<a href="https://github.com/conn3xorg"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-conn3xorg-dark.svg"><img src="assets/repo-conn3xorg-light.svg" alt="Conn3x" width="132"></picture></a>
+<a href="https://github.com/netweir"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-netweir-dark.svg"><img src="assets/repo-netweir-light.svg" alt="Netweir" width="132"></picture></a>
+<a href="https://github.com/tachyon-cms"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tachyon-cms-dark.svg"><img src="assets/repo-tachyon-cms-light.svg" alt="TachyonCMS" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/aegis-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-aegis-v2-dark.svg"><img src="assets/repo-aegis-v2-light.svg" alt="aegis-v2" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/sentry-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentry-v2-dark.svg"><img src="assets/repo-sentry-v2-light.svg" alt="sentry-v2" width="132"></picture></a>
+<a href="https://github.com/Sentrello"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentrello-dark.svg"><img src="assets/repo-sentrello-light.svg" alt="Sentrello" width="132"></picture></a>
+<a href="https://github.com/ticketslinger"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-ticketslinger-dark.svg"><img src="assets/repo-ticketslinger-light.svg" alt="TicketSlinger" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/githard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-githard-dark.svg"><img src="assets/repo-githard-light.svg" alt="githard" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/blueprints"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-blueprints-dark.svg"><img src="assets/repo-blueprints-light.svg" alt="blueprints" width="132"></picture></a>
+<a href="https://github.com/data-privacy-stack"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-data-privacy-stack-dark.svg"><img src="assets/repo-data-privacy-stack-light.svg" alt="Data Privacy Stack" width="132"></picture></a>
+<a href="https://github.com/mrpinkapps/simple-site"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-simple-site-dark.svg"><img src="assets/repo-simple-site-light.svg" alt="simple-site" width="132"></picture></a>
+</p>
+<!-- REPOS:END -->
 
 ## Latest from Out of Memory
 

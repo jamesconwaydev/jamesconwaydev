@@ -13,7 +13,6 @@ API = "https://api.github.com/graphql"
 FIELDS = "owner { login } name description url stargazerCount forkCount primaryLanguage { name color }"
 
 WIDTH, HEIGHT = 400, 140
-FEATURED_WIDTH = 804  # two cards and the gap between them
 PAD = 20
 TEXT_W = WIDTH - 2 * PAD
 DESC, DESC_LINES = 13.5, 2
@@ -66,9 +65,10 @@ def parse_repos(payload: dict, slugs: list[str]) -> list[Repo]:
     return repos
 
 
-def fetch_repos(slugs: list[str], token: str) -> list[Repo]:
+def graphql(query: str, token: str, variables: dict | None = None, ignore_missing: bool = False) -> dict:
+    """The whole response. `ignore_missing` tolerates repos that have gone, which come back null."""
     req = urllib.request.Request(
-        API, data=json.dumps({"query": build_query(slugs)}).encode(),
+        API, data=json.dumps({"query": query, "variables": variables or {}}).encode(),
         headers={"Authorization": f"bearer {token}", "User-Agent": "jamesconwaydev-readme",
                  "Content-Type": "application/json"},
     )
@@ -80,14 +80,18 @@ def fetch_repos(slugs: list[str], token: str) -> list[Repo]:
     except (urllib.error.URLError, TimeoutError) as e:
         raise RuntimeError(f"GitHub GraphQL request failed: {getattr(e, 'reason', e)}") from e
     # GraphQL reports rate limits, bad scopes and unknown repos with a 200 and an errors list.
-    if payload.get("errors"):
-        raise RuntimeError("GitHub GraphQL errors: " + "; ".join(e.get("message", "?") for e in payload["errors"]))
-    return parse_repos(payload, slugs)
+    errors = [e for e in payload.get("errors") or [] if not (ignore_missing and e.get("type") == "NOT_FOUND")]
+    if errors:
+        raise RuntimeError("GitHub GraphQL errors: " + "; ".join(e.get("message", "?") for e in errors))
+    return payload
 
 
-def card_filename(repo: Repo, theme: str, featured: bool = False) -> str:
-    kind = "-featured" if featured else ""
-    return f"card-{repo.owner}-{repo.name}{kind}-{theme}.svg".lower()
+def fetch_repos(slugs: list[str], token: str) -> list[Repo]:
+    return parse_repos(graphql(build_query(slugs), token), slugs)
+
+
+def card_filename(repo: Repo, theme: str) -> str:
+    return f"card-{repo.owner}-{repo.name}-{theme}.svg".lower()
 
 
 def _clean(text: str, font: str) -> str:
@@ -125,15 +129,12 @@ def _clamp_name(name: str, text_w: float = TEXT_W) -> str:
     return name.rstrip() + "…"
 
 
-def card_svg(repo: Repo, theme: str, featured: bool = False) -> str:
-    """A 400px card, or the full-width featured one with a green rule along the top."""
+def card_svg(repo: Repo, theme: str) -> str:
     c = THEMES[theme]
-    width = FEATURED_WIDTH if featured else WIDTH
-    text_w = width - 2 * PAD
     owner = _clean(repo.owner, "mono-500") + " /"
-    name = _clamp_name(_clean(repo.name, "sans-800"), text_w)
+    name = _clamp_name(_clean(repo.name, "sans-800"))
     desc = _clean(repo.description, "sans-400")
-    lines = _wrap(desc, text_w)
+    lines = _wrap(desc)
 
     meta, mono_text, x = [], owner, PAD
     icon_y = Y_META - 4 - ICON / 2  # centre on the mono x-height
@@ -158,11 +159,10 @@ def card_svg(repo: Repo, theme: str, featured: bool = False) -> str:
         for i, line in enumerate(lines)
     )
     title = f"{repo.owner}/{repo.name}" + (f": {repo.description}" if repo.description else "")
-    accent = f'<rect width="{width}" height="4" fill="{c["green"]}"/>\n' if featured else ""
     fonts = font_face_css({k: v for k, v in {
         "mono-500": mono_text, "sans-800": name, "sans-400": "".join(lines),
     }.items() if v})
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{HEIGHT}" viewBox="0 0 {width} {HEIGHT}" role="img">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img">
 <title>{escape(title)}</title>
 <style>
 {fonts}
@@ -170,8 +170,8 @@ def card_svg(repo: Repo, theme: str, featured: bool = False) -> str:
 .n{{font-family:{FAMILY["sans-800"]};font-weight:800;font-size:{NAME_SIZE}px;letter-spacing:{NAME_SPACING}px}}
 .d{{font-family:{FAMILY["sans-400"]};font-weight:400;font-size:{DESC}px}}
 </style>
-<rect x=".5" y=".5" width="{width - 1}" height="{HEIGHT - 1}" fill="{c["panel"]}" stroke="{c["line"]}"/>
-{accent}<text x="{PAD}" y="{Y_OWNER}" class="m" fill="{c["muted"]}">{escape(owner)}</text>
+<rect x=".5" y=".5" width="{WIDTH - 1}" height="{HEIGHT - 1}" fill="{c["panel"]}" stroke="{c["line"]}"/>
+<text x="{PAD}" y="{Y_OWNER}" class="m" fill="{c["muted"]}">{escape(owner)}</text>
 <text x="{PAD}" y="{Y_NAME}" class="n" fill="{c["ink"]}">{escape(name)}</text>
 {desc_svg}
 {"".join(meta)}

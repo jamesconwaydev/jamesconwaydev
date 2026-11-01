@@ -1,4 +1,4 @@
-"""Social icons, the follow pointer, pillar labels and the rule at the foot of the README."""
+"""Social icons, pillar labels and the rule at the foot of the README."""
 from xml.sax.saxutils import escape
 
 from scripts.fonts import FAMILY, font_face_css, text_width
@@ -16,8 +16,6 @@ GLYPHS = {
 }
 TITLES = {"web": "jamesconway.dev", "linkedin": "LinkedIn", "x": "X", "mastodon": "Mastodon", "bluesky": "Bluesky"}
 
-FOLLOW_H, FOLLOW_SIZE, SPACING = 44, 15, 1.4
-ARROW, GAP = 72, 14  # arrow length, then the space before the words
 # Octicons star-fill-16 (MIT), drawn on a 16px grid.
 STAR_PATH = "M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"
 
@@ -38,26 +36,6 @@ def icon_svg(name: str, theme: str) -> str:
 <title>{escape(TITLES[name])}</title>
 <rect x=".5" y=".5" width="{ICON - 1}" height="{ICON - 1}" fill="{c["bg"]}" stroke="{c["line"]}"/>
 <g transform="translate({off} {off}) scale({GLYPH / 24:.5f})">{glyph}</g>
-</svg>
-"""
-
-
-def follow_svg(theme: str) -> str:
-    """An arrow pointing left, at the Follow button in GitHub's profile sidebar."""
-    c = THEMES[theme]
-    label = "FOLLOW ME"
-    width = round(ARROW + GAP + text_width(label, "mono-600", FOLLOW_SIZE, SPACING) + 1, 2)
-    mid = FOLLOW_H / 2
-    fonts = font_face_css({"mono-600": label})
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width:g}" height="{FOLLOW_H}" viewBox="0 0 {width:g} {FOLLOW_H}" role="img">
-<title>Follow me: the button is in the sidebar to the left</title>
-<style>
-{fonts}
-.f{{font-family:{FAMILY["mono-600"]};font-weight:600;font-size:{FOLLOW_SIZE}px;letter-spacing:{SPACING}px}}
-</style>
-<rect x="8" y="{mid - 1:g}" width="{ARROW - 8}" height="2" fill="{c["green"]}"/>
-<path d="M0 {mid:g}L12 {mid - 7:g}V{mid + 7:g}Z" fill="{c["green"]}"/>
-<text x="{ARROW + GAP}" y="{mid + 5:g}" class="f" fill="{c["ink"]}">{label}</text>
 </svg>
 """
 
