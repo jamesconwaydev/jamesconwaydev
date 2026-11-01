@@ -118,7 +118,7 @@ class CardsTest(unittest.TestCase):
             for theme in ("dark", "light"):
                 svg = card_svg(r, theme)
                 root = ET.fromstring(svg)
-                self.assertEqual((root.get("width"), root.get("height")), ("400", "140"))
+                self.assertEqual((root.get("width"), root.get("height")), ("400", "158"))
                 self.assertNotIn("★", svg)
                 self.assertNotIn("⑂", svg)
                 assert_self_contained(self, svg)

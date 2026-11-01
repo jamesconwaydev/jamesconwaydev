@@ -13,6 +13,7 @@ API = "https://api.github.com/graphql"
 FIELDS = "owner { login } name description url stargazerCount forkCount primaryLanguage { name color }"
 
 WIDTH, HEIGHT = 400, 140
+STACK_GAP = 18  # clear space under each card, for narrow windows where the pair stacks
 PAD = 20
 TEXT_W = WIDTH - 2 * PAD
 DESC, DESC_LINES = 13.5, 2
@@ -162,7 +163,7 @@ def card_svg(repo: Repo, theme: str) -> str:
     fonts = font_face_css({k: v for k, v in {
         "mono-500": mono_text, "sans-800": name, "sans-400": "".join(lines),
     }.items() if v})
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT + STACK_GAP}" viewBox="0 0 {WIDTH} {HEIGHT + STACK_GAP}" role="img">
 <title>{escape(title)}</title>
 <style>
 {fonts}
