@@ -19,7 +19,7 @@
 
 <!-- STATS:START -->
 <p align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,110 commits, 1,086 pull requests, 398 issues, 120 repos contributed, 2.6M lines of code, 11,752 stars." width="832"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,128 commits, 1,100 pull requests, 400 issues, 120 repos contributed, 2.6M lines of code, 11,780 stars." width="832"></picture>
 </p>
 <!-- STATS:END -->
 
@@ -73,11 +73,11 @@
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-11-02` · **[I Found Out About Hacktoberfest Two Days Late](https://jamesconway.dev/blog/hacktoberfest-2026-recap/)**<br>Hacktoberfest ended on 31 October. I found out it existed on 2 November. Here's the October I had anyway: two launches, nine new contributors, and a lot of me talking to myself.
+
 `2026-10-27` · **[Your Scrapy Spider, Three Lines Later: Moving to Netweir](https://jamesconway.dev/blog/moving-from-scrapy-to-netweir/)**<br>A Scrapy spider moves to Netweir with three lines changed. Here's what carries over, what doesn't yet, and how to try it without leaving Scrapy at all.
 
 `2026-10-25` · **[Two Tools, One Job: Why I Started Building Conn3x](https://jamesconway.dev/blog/why-i-started-conn3x/)**<br>I've started building Conn3x: one Go binary that creates your servers and configures them in the same plan. It's early, and I'm aiming for the CNCF.
-
-`2026-10-23` · **[I Built the Smoke Detector Before the Fire](https://jamesconway.dev/blog/i-built-the-smoke-detector-before-the-fire/)**<br>Aegis v2 is an open-source eBPF tool that watches process behaviour on Rocky Linux 10, adds the warning signs into one score, and records one incident.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->
