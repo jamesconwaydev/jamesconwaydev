@@ -19,7 +19,7 @@
 
 <!-- STATS:START -->
 <p align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,128 commits, 1,100 pull requests, 400 issues, 120 repos contributed, 2.6M lines of code, 11,780 stars." width="832"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,172 commits, 1,144 pull requests, 414 issues, 130 repos contributed, 5.4M lines of code, 154,521 stars." width="832"></picture>
 </p>
 <!-- STATS:END -->
 
@@ -27,7 +27,7 @@
 
 <!-- FEATURED:START -->
 <p>
-<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 101 circuits, 106 repos in the org." width="832"></picture></a>
+<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 102 circuits, 107 repos in the org." width="832"></picture></a>
 </p>
 
 <p align="center">
@@ -65,19 +65,27 @@
 <a href="https://github.com/ticketslinger"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-ticketslinger-dark.svg"><img src="assets/repo-ticketslinger-light.svg" alt="TicketSlinger" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/githard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-githard-dark.svg"><img src="assets/repo-githard-light.svg" alt="githard" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/blueprints"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-blueprints-dark.svg"><img src="assets/repo-blueprints-light.svg" alt="blueprints" width="132"></picture></a>
+<a href="https://github.com/prometheus"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-prometheus-dark.svg"><img src="assets/repo-prometheus-light.svg" alt="Prometheus" width="132"></picture></a>
+<a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
+<a href="https://github.com/cockpit-project"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-project-dark.svg"><img src="assets/repo-cockpit-project-light.svg" alt="Cockpit Project" width="132"></picture></a>
 <a href="https://github.com/data-privacy-stack"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-data-privacy-stack-dark.svg"><img src="assets/repo-data-privacy-stack-light.svg" alt="Data Privacy Stack" width="132"></picture></a>
+<a href="https://github.com/up-for-grabs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs-dark.svg"><img src="assets/repo-up-for-grabs-light.svg" alt="up-for-grabs" width="132"></picture></a>
+<a href="https://github.com/n8n-io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-n8n-io-dark.svg"><img src="assets/repo-n8n-io-light.svg" alt="n8n - Workflow Automation" width="132"></picture></a>
+<a href="https://github.com/jenkinsci"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkinsci-dark.svg"><img src="assets/repo-jenkinsci-light.svg" alt="Jenkins" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/cockpit"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-dark.svg"><img src="assets/repo-cockpit-light.svg" alt="cockpit" width="132"></picture></a>
 <a href="https://github.com/mrpinkapps/simple-site"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-simple-site-dark.svg"><img src="assets/repo-simple-site-light.svg" alt="simple-site" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/up-for-grabs.net"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs.net-dark.svg"><img src="assets/repo-up-for-grabs.net-light.svg" alt="up-for-grabs.net" width="132"></picture></a>
 </p>
 <!-- REPOS:END -->
 
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-11-03` · **[A Private AI Box for 4 Cents an Hour](https://jamesconway.dev/blog/private-ai-box/)**<br>I wanted to ask questions of my own notes without pasting them into someone else's chatbot. One Conn3x apply now builds the box for it, and the only door it leaves open is SSH.
+
 `2026-11-02` · **[I Found Out About Hacktoberfest Two Days Late](https://jamesconway.dev/blog/hacktoberfest-2026-recap/)**<br>Hacktoberfest ended on 31 October. I found out it existed on 2 November. Here's the October I had anyway: two launches, nine new contributors, and a lot of me talking to myself.
 
 `2026-10-27` · **[Your Scrapy Spider, Three Lines Later: Moving to Netweir](https://jamesconway.dev/blog/moving-from-scrapy-to-netweir/)**<br>A Scrapy spider moves to Netweir with three lines changed. Here's what carries over, what doesn't yet, and how to try it without leaving Scrapy at all.
-
-`2026-10-25` · **[Two Tools, One Job: Why I Started Building Conn3x](https://jamesconway.dev/blog/why-i-started-conn3x/)**<br>I've started building Conn3x: one Go binary that creates your servers and configures them in the same plan. It's early, and I'm aiming for the CNCF.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->

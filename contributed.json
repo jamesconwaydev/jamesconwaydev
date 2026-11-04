@@ -1,5 +1,6 @@
 [
 "Sentrello/Sentrello",
+"cockpit-project/cockpit",
 "conn3xorg/.github",
 "conn3xorg/circuit-adguardhome",
 "conn3xorg/circuit-agentbox",
@@ -35,6 +36,7 @@
 "conn3xorg/circuit-haproxy",
 "conn3xorg/circuit-hardening",
 "conn3xorg/circuit-helm",
+"conn3xorg/circuit-iis",
 "conn3xorg/circuit-infisical",
 "conn3xorg/circuit-istio",
 "conn3xorg/circuit-java",
@@ -110,13 +112,21 @@
 "jamesconwaydev/.github",
 "jamesconwaydev/aegis-v2",
 "jamesconwaydev/blueprints",
+"jamesconwaydev/cockpit",
 "jamesconwaydev/githard",
 "jamesconwaydev/jamesconwaydev",
 "jamesconwaydev/sentry-v2",
+"jamesconwaydev/up-for-grabs.net",
+"jenkinsci/packaging",
 "mrpinkapps/simple-site",
+"n8n-io/n8n-docs",
 "netweir/netweir",
+"prometheus/node_exporter",
+"prometheus/prometheus",
 "tachyon-cms/tachyoncms",
 "tachyon-cms/website",
+"tailscale/tailscale",
 "ticketslinger/.github",
-"ticketslinger/ticketslinger"
+"ticketslinger/ticketslinger",
+"up-for-grabs/up-for-grabs.net"
 ]
