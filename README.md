@@ -19,7 +19,7 @@
 
 <!-- STATS:START -->
 <p align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,172 commits, 1,144 pull requests, 414 issues, 130 repos contributed, 5.4M lines of code, 154,521 stars." width="832"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,323 commits, 1,290 pull requests, 481 issues, 141 repos contributed, 5.9M lines of code, 163,774 stars." width="832"></picture>
 </p>
 <!-- STATS:END -->
 
@@ -27,7 +27,7 @@
 
 <!-- FEATURED:START -->
 <p>
-<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 102 circuits, 107 repos in the org." width="832"></picture></a>
+<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 110 circuits, 115 repos in the org." width="832"></picture></a>
 </p>
 
 <p align="center">
@@ -71,7 +71,9 @@
 <a href="https://github.com/data-privacy-stack"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-data-privacy-stack-dark.svg"><img src="assets/repo-data-privacy-stack-light.svg" alt="Data Privacy Stack" width="132"></picture></a>
 <a href="https://github.com/up-for-grabs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs-dark.svg"><img src="assets/repo-up-for-grabs-light.svg" alt="up-for-grabs" width="132"></picture></a>
 <a href="https://github.com/n8n-io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-n8n-io-dark.svg"><img src="assets/repo-n8n-io-light.svg" alt="n8n - Workflow Automation" width="132"></picture></a>
+<a href="https://github.com/jenkins-infra"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkins-infra-dark.svg"><img src="assets/repo-jenkins-infra-light.svg" alt="Jenkins Infra" width="132"></picture></a>
 <a href="https://github.com/jenkinsci"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkinsci-dark.svg"><img src="assets/repo-jenkinsci-light.svg" alt="Jenkins" width="132"></picture></a>
+<a href="https://github.com/parsec-html"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-parsec-html-dark.svg"><img src="assets/repo-parsec-html-light.svg" alt="Parsec" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/cockpit"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-dark.svg"><img src="assets/repo-cockpit-light.svg" alt="cockpit" width="132"></picture></a>
 <a href="https://github.com/mrpinkapps/simple-site"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-simple-site-dark.svg"><img src="assets/repo-simple-site-light.svg" alt="simple-site" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/up-for-grabs.net"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs.net-dark.svg"><img src="assets/repo-up-for-grabs.net-light.svg" alt="up-for-grabs.net" width="132"></picture></a>
