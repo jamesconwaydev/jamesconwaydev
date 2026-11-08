@@ -19,7 +19,7 @@
 
 <!-- STATS:START -->
 <p align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,732 commits, 1,679 pull requests, 551 issues, 161 repos contributed, 6.1M lines of code, 164,257 stars." width="832"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,772 commits, 1,721 pull requests, 649 issues, 161 repos contributed, 6.1M lines of code, 164,539 stars." width="832"></picture>
 </p>
 <!-- STATS:END -->
 
