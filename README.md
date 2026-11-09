@@ -19,7 +19,7 @@
 
 <!-- STATS:START -->
 <p align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,772 commits, 1,721 pull requests, 649 issues, 161 repos contributed, 6.1M lines of code, 164,539 stars." width="832"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,914 commits, 1,853 pull requests, 964 issues, 168 repos contributed, 44.8M lines of code, 167,207 stars." width="832"></picture>
 </p>
 <!-- STATS:END -->
 
@@ -63,19 +63,22 @@
 <a href="https://github.com/jamesconwaydev/sentry-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentry-v2-dark.svg"><img src="assets/repo-sentry-v2-light.svg" alt="sentry-v2" width="132"></picture></a>
 <a href="https://github.com/Sentrello"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentrello-dark.svg"><img src="assets/repo-sentrello-light.svg" alt="Sentrello" width="132"></picture></a>
 <a href="https://github.com/ticketslinger"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-ticketslinger-dark.svg"><img src="assets/repo-ticketslinger-light.svg" alt="TicketSlinger" width="132"></picture></a>
-<a href="https://github.com/jamesconwaydev/githard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-githard-dark.svg"><img src="assets/repo-githard-light.svg" alt="githard" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/blueprints"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-blueprints-dark.svg"><img src="assets/repo-blueprints-light.svg" alt="blueprints" width="132"></picture></a>
 <a href="https://github.com/prometheus"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-prometheus-dark.svg"><img src="assets/repo-prometheus-light.svg" alt="Prometheus" width="132"></picture></a>
 <a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
 <a href="https://github.com/cockpit-project"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-project-dark.svg"><img src="assets/repo-cockpit-project-light.svg" alt="Cockpit Project" width="132"></picture></a>
 <a href="https://github.com/data-privacy-stack"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-data-privacy-stack-dark.svg"><img src="assets/repo-data-privacy-stack-light.svg" alt="Data Privacy Stack" width="132"></picture></a>
 <a href="https://github.com/up-for-grabs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs-dark.svg"><img src="assets/repo-up-for-grabs-light.svg" alt="up-for-grabs" width="132"></picture></a>
+<a href="https://github.com/github"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-github-dark.svg"><img src="assets/repo-github-light.svg" alt="GitHub" width="132"></picture></a>
 <a href="https://github.com/n8n-io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-n8n-io-dark.svg"><img src="assets/repo-n8n-io-light.svg" alt="n8n - Workflow Automation" width="132"></picture></a>
 <a href="https://github.com/jenkins-infra"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkins-infra-dark.svg"><img src="assets/repo-jenkins-infra-light.svg" alt="Jenkins Infra" width="132"></picture></a>
 <a href="https://github.com/jenkinsci"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkinsci-dark.svg"><img src="assets/repo-jenkinsci-light.svg" alt="Jenkins" width="132"></picture></a>
 <a href="https://github.com/devstreamhq"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-devstreamhq-dark.svg"><img src="assets/repo-devstreamhq-light.svg" alt="DevStream" width="132"></picture></a>
 <a href="https://github.com/parsec-html"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-parsec-html-dark.svg"><img src="assets/repo-parsec-html-light.svg" alt="Parsec" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/advisory-database"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-advisory-database-dark.svg"><img src="assets/repo-advisory-database-light.svg" alt="advisory-database" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/cockpit"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-dark.svg"><img src="assets/repo-cockpit-light.svg" alt="cockpit" width="132"></picture></a>
+<a href="https://github.com/getgithard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-getgithard-dark.svg"><img src="assets/repo-getgithard-light.svg" alt="GitHard" width="132"></picture></a>
+<a href="https://github.com/keyparity"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keyparity-dark.svg"><img src="assets/repo-keyparity-light.svg" alt="keyparity" width="132"></picture></a>
 <a href="https://github.com/mrpinkapps/simple-site"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-simple-site-dark.svg"><img src="assets/repo-simple-site-light.svg" alt="simple-site" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/up-for-grabs.net"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs.net-dark.svg"><img src="assets/repo-up-for-grabs.net-light.svg" alt="up-for-grabs.net" width="132"></picture></a>
 </p>
