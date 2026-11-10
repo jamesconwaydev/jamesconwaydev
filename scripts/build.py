@@ -1,6 +1,6 @@
 """Rebuild the README's generated blocks and every SVG it points at.
 
-    python -m scripts.build refresh   stats, feature, cards, repo icons, pillar labels, README
+    python -m scripts.build refresh   feature, cards, repo icons, README
     python -m scripts.build all       all of that, plus header, social icons, footer
 
 Everything is fetched and rendered in memory first, so a failed request
@@ -15,12 +15,12 @@ import sys
 from html import escape
 
 from scripts.cards import card_filename, card_svg, fetch_repos
-from scripts.chrome import footer_svg, icon_svg, label_svg
+from scripts.chrome import footer_svg, icon_svg
 from scripts.feature import URL as FEATURE_URL, feature_alt, feature_svg, fetch_org_counts
 from scripts.feed import fetch_feed, parse_feed, posts_markdown, replace_block
 from scripts.header import header_svg
 from scripts.repo_icons import fetch_avatar, needs_avatar, projects_from, tile_filename, tile_svg
-from scripts.stats import fetch_stats, stats_alt, stats_svg
+from scripts.stats import fetch_stats
 from scripts.theme import ROOT
 
 THEMES = ("dark", "light")
@@ -28,7 +28,8 @@ GENERATED = ("card-*.svg", "label-*.svg", "repo-*.svg")  # named after live data
 FULL_WIDTH = 832  # two cards and the gap between them
 CARD_GAP = "&emsp;&emsp;"
 FEATURE_LINKS = (("Website", "https://conn3x.org"), ("Docs", "https://docs.conn3x.org/get-started"),
-                 ("Circuits", "https://conn3x.org/circuits"), ("GitHub", FEATURE_URL))
+                 ("Circuits", "https://conn3x.org/circuits"), ("GitHub", FEATURE_URL),
+                 ("YouTube", "https://www.youtube.com/@conn3xlabs"))
 
 
 def github_token() -> str:
@@ -56,10 +57,6 @@ def card_link(r) -> str:
     return f'<a href="{escape(r.url)}">{picture(name, alt, 400)}</a>'
 
 
-def stats_block(stats) -> str:
-    return f'<p align="center">\n{picture("stats", stats_alt(stats), FULL_WIDTH)}\n</p>'
-
-
 def featured_block(counts) -> str:
     links = " · ".join(f'<a href="{url}">{text}</a>' for text, url in FEATURE_LINKS)
     return (f'<p>\n<a href="{FEATURE_URL}">{picture("feature-conn3x", feature_alt(counts), FULL_WIDTH)}</a>\n</p>\n\n'
@@ -69,10 +66,8 @@ def featured_block(counts) -> str:
 def cards_block(projects: list[dict], repos: dict) -> str:
     rows = []
     for group in (g for g in projects if not g.get("featured")):
-        pillar = group["pillar"]
-        label = picture(f"label-{slug(pillar)}", pillar[:1].upper() + pillar[1:]) + "<br>"
         cards = CARD_GAP.join(card_link(repos[s]) for s in group["repos"])
-        rows.append(f"<p>\n{label}\n{cards}\n</p>")
+        rows.append(f"<p>\n{cards}\n</p>")
     return "\n\n<br>\n\n".join(rows)
 
 
@@ -96,7 +91,6 @@ def render(mode: str) -> dict[str, str]:
     avatars = {p.key: fetch_avatar(p.avatar_url) for p in tiles if needs_avatar(p)}
 
     readme = (ROOT / "README.md").read_text()
-    readme = replace_block(readme, stats_block(stats), "STATS")
     readme = replace_block(readme, featured_block(counts), "FEATURED")
     readme = replace_block(readme, cards_block(projects, repos), "CARDS")
     readme = replace_block(readme, icons_block(tiles), "REPOS")
@@ -106,7 +100,6 @@ def render(mode: str) -> dict[str, str]:
     }
 
     for theme in THEMES:
-        files[f"assets/stats-{theme}.svg"] = stats_svg(stats, theme)
         files[f"assets/feature-conn3x-{theme}.svg"] = feature_svg(counts, theme)
         for p in tiles:
             files[f"assets/{tile_filename(p, theme)}"] = tile_svg(p, theme, avatars.get(p.key))
@@ -115,7 +108,6 @@ def render(mode: str) -> dict[str, str]:
                 continue
             for s in group["repos"]:
                 files[f"assets/{card_filename(repos[s], theme)}"] = card_svg(repos[s], theme)
-            files[f"assets/label-{slug(group['pillar'])}-{theme}.svg"] = label_svg(group["pillar"], theme)
         if mode == "all":
             files[f"assets/header-{theme}.svg"] = header_svg(theme)
             files[f"assets/footer-{theme}.svg"] = footer_svg(theme)

@@ -89,7 +89,7 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.run_quietly("all"), 0)
         readme = (self.tmp / "README.md").read_text()
         paths = re.findall(r'(?:src|srcset)="(assets/[^"]+)"', readme)
-        self.assertEqual(len(paths), 2 * 17)  # header, 5 icons, stats, feature, 2 labels, 4 cards, 2 tiles, footer
+        self.assertEqual(len(paths), 2 * 14)  # header, 5 icons, feature, 4 cards, 2 tiles, footer
         for path in paths:
             self.assertTrue((self.tmp / path).is_file(), path)
 
@@ -98,8 +98,8 @@ class BuildTest(unittest.TestCase):
         readme = (self.tmp / "README.md").read_text()
         self.assertIn('<a href="https://github.com/netweir/netweir"><picture>', readme)
         self.assertNotIn("github.com/Sentrello", readme)
-        self.assertIn('srcset="assets/label-linux-infrastructure-dark.svg"', readme)
-        self.assertIn("1.5M lines of code", readme)
+        self.assertNotIn("assets/label-", readme)
+        self.assertNotIn("assets/stats-", readme)
         self.assertIn('srcset="assets/repo-conn3xorg-dark.svg"', readme)
         self.assertNotIn("follow-", readme)
         self.assertIn("Read the rest on jamesconway.dev", readme)
@@ -108,12 +108,12 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.run_quietly("refresh"), 0)
         readme = (self.tmp / "README.md").read_text()
         featured = readme.index('srcset="assets/feature-conn3x-dark.svg"')
-        self.assertLess(featured, readme.index("## My Top Open Source Projects"))
+        self.assertLess(featured, readme.index("## Other Cool Projects"))
         self.assertIn('width="832"', readme[featured:readme.index("<!-- FEATURED:END -->")])
         self.assertNotIn("label-featured-project", readme)
-        pillars = [readme.index(f"label-{p}-dark") for p in
-                   ("high-performance-developer-tools", "linux-infrastructure")]
-        self.assertEqual(pillars, sorted(pillars))
+        cards = [readme.index(f"card-{c}-dark") for c in
+                 ("netweir-netweir", "tachyon-cms-tachyoncms", "getgithard-githard", "devstreamhq-devstream")]
+        self.assertEqual(cards, sorted(cards))
 
     def test_trimmed_projects_drop_stale_assets(self):
         projects = json.loads((self.tmp / "projects.json").read_text())
@@ -122,9 +122,8 @@ class BuildTest(unittest.TestCase):
         assets = self.tmp / "assets"
         names = sorted(p.name for p in [*assets.glob("card-*.svg"), *assets.glob("label-*.svg")])
         self.assertEqual(names, [
-            "card-jamesconwaydev-aegis-v2-dark.svg", "card-jamesconwaydev-aegis-v2-light.svg",
-            "card-jamesconwaydev-sentry-v2-dark.svg", "card-jamesconwaydev-sentry-v2-light.svg",
-            "label-linux-infrastructure-dark.svg", "label-linux-infrastructure-light.svg",
+            "card-devstreamhq-devstream-dark.svg", "card-devstreamhq-devstream-light.svg",
+            "card-getgithard-githard-dark.svg", "card-getgithard-githard-light.svg",
         ])
         self.assertTrue((self.tmp / "assets" / "header-dark.svg").is_file())
         self.assertNotIn("netweir", (self.tmp / "README.md").read_text())

@@ -37,8 +37,8 @@ class CardsTest(unittest.TestCase):
 
     def test_missing_repo_raises(self):
         payload = json.loads(json.dumps(FIXTURE))
-        payload["data"][f"r{SLUGS.index('jamesconwaydev/sentry-v2')}"] = None
-        with self.assertRaisesRegex(RuntimeError, "jamesconwaydev/sentry-v2"):
+        payload["data"][f"r{SLUGS.index('devstreamhq/devstream')}"] = None
+        with self.assertRaisesRegex(RuntimeError, "devstreamhq/devstream"):
             parse_repos(payload, SLUGS)
 
     def test_fetch_sends_token_and_parses(self):
@@ -70,7 +70,7 @@ class CardsTest(unittest.TestCase):
                     fetch_repos(SLUGS, "tok")
 
     def test_ampersand_escaped(self):
-        aegis = parse_repos(FIXTURE, SLUGS)[SLUGS.index("jamesconwaydev/aegis-v2")]
+        aegis = parse_repos({"data": {"r0": FIXTURE["data"]["r7"]}}, ["jamesconwaydev/aegis-v2"])[0]
         svg = card_svg(aegis, "dark")
         ET.fromstring(svg)
         self.assertIn("&amp;", svg)

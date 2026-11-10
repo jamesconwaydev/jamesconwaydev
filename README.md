@@ -1,6 +1,6 @@
 <!--
   Most of this file is hand-written, but not all of it. Everything between the
-  STATS, FEATURED, CARDS, REPOS and BLOG markers gets rewritten by
+  FEATURED, CARDS, REPOS and BLOG markers gets rewritten by
   `python -m scripts.build refresh`, so any edit you make in there will vanish
   on the next run. Change projects.json to swap projects.
 -->
@@ -17,12 +17,6 @@
 <a href="https://bsky.app/profile/jamesconway.dev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/icon-bluesky-dark.svg"><img src="assets/icon-bluesky-light.svg" alt="James Conway on Bluesky" width="48"></picture></a>
 </p>
 
-<!-- STATS:START -->
-<p align="center">
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg"><img src="assets/stats-light.svg" alt="GitHub stats, public work only: 2,914 commits, 1,853 pull requests, 964 issues, 168 repos contributed, 44.8M lines of code, 167,207 stars." width="832"></picture>
-</p>
-<!-- STATS:END -->
-
 ## Featured Project
 
 <!-- FEATURED:START -->
@@ -32,23 +26,21 @@
 
 <p align="center">
 <code>brew install conn3xorg/tap/conn3x</code><br>
-<a href="https://conn3x.org">Website</a> · <a href="https://docs.conn3x.org/get-started">Docs</a> · <a href="https://conn3x.org/circuits">Circuits</a> · <a href="https://github.com/conn3xorg/conn3x">GitHub</a>
+<a href="https://conn3x.org">Website</a> · <a href="https://docs.conn3x.org/get-started">Docs</a> · <a href="https://conn3x.org/circuits">Circuits</a> · <a href="https://github.com/conn3xorg/conn3x">GitHub</a> · <a href="https://www.youtube.com/@conn3xlabs">YouTube</a>
 </p>
 <!-- FEATURED:END -->
 
-## My Top Open Source Projects
+## Other Cool Projects
 
 <!-- CARDS:START -->
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/label-high-performance-developer-tools-dark.svg"><img src="assets/label-high-performance-developer-tools-light.svg" alt="High-performance developer tools"></picture><br>
 <a href="https://github.com/netweir/netweir"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-netweir-netweir-dark.svg"><img src="assets/card-netweir-netweir-light.svg" alt="netweir/netweir: An ultra-fast, self-healing, undetectable web scraper. Rust does the work; you write Python." width="400"></picture></a>&emsp;&emsp;<a href="https://github.com/tachyon-cms/tachyoncms"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-tachyon-cms-tachyoncms-dark.svg"><img src="assets/card-tachyon-cms-tachyoncms-light.svg" alt="tachyon-cms/tachyoncms: Rust-powered, ultra-fast, highly secure headless CMS" width="400"></picture></a>
 </p>
 
 <br>
 
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/label-linux-infrastructure-dark.svg"><img src="assets/label-linux-infrastructure-light.svg" alt="Linux infrastructure"></picture><br>
-<a href="https://github.com/jamesconwaydev/aegis-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-jamesconwaydev-aegis-v2-dark.svg"><img src="assets/card-jamesconwaydev-aegis-v2-light.svg" alt="jamesconwaydev/aegis-v2: Runtime threat detection for Rocky Linux 10, built on eBPF and Rust." width="400"></picture></a>&emsp;&emsp;<a href="https://github.com/jamesconwaydev/sentry-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-jamesconwaydev-sentry-v2-dark.svg"><img src="assets/card-jamesconwaydev-sentry-v2-light.svg" alt="jamesconwaydev/sentry-v2: Watches cgroup v2 pressure, systemd failures and SELinux denials on Rocky/RHEL 10, and applies reversible, time-boxed fixes before the OOM killer has to." width="400"></picture></a>
+<a href="https://github.com/getgithard/githard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-getgithard-githard-dark.svg"><img src="assets/card-getgithard-githard-light.svg" alt="getgithard/githard: Makes AI build and manage your GitHub repos perfectly." width="400"></picture></a>&emsp;&emsp;<a href="https://github.com/devstreamhq/devstream"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-devstreamhq-devstream-dark.svg"><img src="assets/card-devstreamhq-devstream-light.svg" alt="devstreamhq/devstream: Repos ranked by the developers who like them. Submit yours, Like what you use." width="400"></picture></a>
 </p>
 <!-- CARDS:END -->
 

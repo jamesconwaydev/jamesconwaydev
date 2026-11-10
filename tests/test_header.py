@@ -8,7 +8,6 @@ from tests.support import assert_self_contained
 
 COPY = [
     "jamesconwaydev@github: ~",
-    "whoami",
     "I build software that solves real problems.",
     "I build software that solves",
     "real problems.",
