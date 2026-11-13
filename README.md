@@ -21,7 +21,7 @@
 
 <!-- FEATURED:START -->
 <p>
-<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 128 circuits, 134 repos in the org." width="832"></picture></a>
+<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 128 circuits, 135 repos in the org." width="832"></picture></a>
 </p>
 
 <p align="center">
