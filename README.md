@@ -21,7 +21,7 @@
 
 <!-- FEATURED:START -->
 <p>
-<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 128 circuits, 135 repos in the org." width="832"></picture></a>
+<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 128 circuits, 137 repos in the org." width="832"></picture></a>
 </p>
 
 <p align="center">
@@ -60,6 +60,7 @@
 <a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
 <a href="https://github.com/cockpit-project"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-project-dark.svg"><img src="assets/repo-cockpit-project-light.svg" alt="Cockpit Project" width="132"></picture></a>
 <a href="https://github.com/data-privacy-stack"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-data-privacy-stack-dark.svg"><img src="assets/repo-data-privacy-stack-light.svg" alt="Data Privacy Stack" width="132"></picture></a>
+<a href="https://github.com/microsoft"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-microsoft-dark.svg"><img src="assets/repo-microsoft-light.svg" alt="Microsoft" width="132"></picture></a>
 <a href="https://github.com/up-for-grabs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs-dark.svg"><img src="assets/repo-up-for-grabs-light.svg" alt="up-for-grabs" width="132"></picture></a>
 <a href="https://github.com/github"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-github-dark.svg"><img src="assets/repo-github-light.svg" alt="GitHub" width="132"></picture></a>
 <a href="https://github.com/n8n-io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-n8n-io-dark.svg"><img src="assets/repo-n8n-io-light.svg" alt="n8n - Workflow Automation" width="132"></picture></a>
@@ -73,6 +74,7 @@
 <a href="https://github.com/keyparity"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keyparity-dark.svg"><img src="assets/repo-keyparity-light.svg" alt="keyparity" width="132"></picture></a>
 <a href="https://github.com/mrpinkapps/simple-site"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-simple-site-dark.svg"><img src="assets/repo-simple-site-light.svg" alt="simple-site" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/up-for-grabs.net"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs.net-dark.svg"><img src="assets/repo-up-for-grabs.net-light.svg" alt="up-for-grabs.net" width="132"></picture></a>
+<a href="https://github.com/jamesconwaydev/winget-pkgs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-winget-pkgs-dark.svg"><img src="assets/repo-winget-pkgs-light.svg" alt="winget-pkgs" width="132"></picture></a>
 </p>
 <!-- REPOS:END -->
 
