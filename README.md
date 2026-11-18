@@ -21,7 +21,7 @@
 
 <!-- FEATURED:START -->
 <p>
-<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 128 circuits, 137 repos in the org." width="832"></picture></a>
+<a href="https://github.com/conn3xorg/conn3x"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/feature-conn3x-dark.svg"><img src="assets/feature-conn3x-light.svg" alt="Conn3x bridges infrastructure as code and configuration management: one binary, one plan, one state. 10 clouds and hypervisors, 129 circuits, 141 repos in the org." width="832"></picture></a>
 </p>
 
 <p align="center">
@@ -58,6 +58,9 @@
 <a href="https://github.com/jamesconwaydev/blueprints"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-blueprints-dark.svg"><img src="assets/repo-blueprints-light.svg" alt="blueprints" width="132"></picture></a>
 <a href="https://github.com/prometheus"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-prometheus-dark.svg"><img src="assets/repo-prometheus-light.svg" alt="Prometheus" width="132"></picture></a>
 <a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
+<a href="https://github.com/keycloak"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keycloak-dark.svg"><img src="assets/repo-keycloak-light.svg" alt="Keycloak" width="132"></picture></a>
+<a href="https://github.com/Infisical"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-infisical-dark.svg"><img src="assets/repo-infisical-light.svg" alt="Infisical" width="132"></picture></a>
+<a href="https://github.com/osquery"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-osquery-dark.svg"><img src="assets/repo-osquery-light.svg" alt="osquery" width="132"></picture></a>
 <a href="https://github.com/cockpit-project"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-project-dark.svg"><img src="assets/repo-cockpit-project-light.svg" alt="Cockpit Project" width="132"></picture></a>
 <a href="https://github.com/data-privacy-stack"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-data-privacy-stack-dark.svg"><img src="assets/repo-data-privacy-stack-light.svg" alt="Data Privacy Stack" width="132"></picture></a>
 <a href="https://github.com/microsoft"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-microsoft-dark.svg"><img src="assets/repo-microsoft-light.svg" alt="Microsoft" width="132"></picture></a>
@@ -81,11 +84,11 @@
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-11-17` · **[59 Days to Full IaCC, and Why I Need Your Stars](https://jamesconway.dev/blog/conn3x-59-days-to-full-iacc/)**<br>Where Conn3x is, what's left before it's a complete infrastructure-as-code-and-configuration tool, and the one-click thing you can do to help.
+
 `2026-11-03` · **[A Private AI Box for 4 Cents an Hour](https://jamesconway.dev/blog/private-ai-box/)**<br>I wanted to ask questions of my own notes without pasting them into someone else's chatbot. One Conn3x apply now builds the box for it, and the only door it leaves open is SSH.
 
 `2026-11-02` · **[I Found Out About Hacktoberfest Two Days Late](https://jamesconway.dev/blog/hacktoberfest-2026-recap/)**<br>Hacktoberfest ended on 31 October. I found out it existed on 2 November. Here's the October I had anyway: two launches, nine new contributors, and a lot of me talking to myself.
-
-`2026-10-27` · **[Your Scrapy Spider, Three Lines Later: Moving to Netweir](https://jamesconway.dev/blog/moving-from-scrapy-to-netweir/)**<br>A Scrapy spider moves to Netweir with three lines changed. Here's what carries over, what doesn't yet, and how to try it without leaving Scrapy at all.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->
