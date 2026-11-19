@@ -57,9 +57,9 @@
 <a href="https://github.com/jenkinsci"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkinsci-dark.svg"><img src="assets/repo-jenkinsci-light.svg" alt="Jenkins" width="132"></picture></a>
 <a href="https://github.com/devstreamhq"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-devstreamhq-dark.svg"><img src="assets/repo-devstreamhq-light.svg" alt="DevStream" width="132"></picture></a>
 <a href="https://github.com/parsec-html"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-parsec-html-dark.svg"><img src="assets/repo-parsec-html-light.svg" alt="Parsec" width="132"></picture></a>
+<a href="https://github.com/getgithard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-getgithard-dark.svg"><img src="assets/repo-getgithard-light.svg" alt="GitHard" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/advisory-database"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-advisory-database-dark.svg"><img src="assets/repo-advisory-database-light.svg" alt="advisory-database" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/cockpit"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-dark.svg"><img src="assets/repo-cockpit-light.svg" alt="cockpit" width="132"></picture></a>
-<a href="https://github.com/getgithard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-getgithard-dark.svg"><img src="assets/repo-getgithard-light.svg" alt="GitHard" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/up-for-grabs.net"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs.net-dark.svg"><img src="assets/repo-up-for-grabs.net-light.svg" alt="up-for-grabs.net" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/winget-pkgs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-winget-pkgs-dark.svg"><img src="assets/repo-winget-pkgs-light.svg" alt="winget-pkgs" width="132"></picture></a>
 </p>
