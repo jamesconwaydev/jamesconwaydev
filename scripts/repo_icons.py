@@ -13,6 +13,7 @@ WIDTH, HEIGHT = 160, 112
 LOGO, LOGO_Y = 60, 14
 LABEL_SIZE = 12
 SKIP = {f"{LOGIN}/{LOGIN}", f"{LOGIN}/.github"}  # profile plumbing, not projects
+HIDE = {"blueprints", "simple-site", "keyparity"}  # tile keys James asked to leave off
 # Yours first, in this order. Anything else follows by stars.
 ORDER = ("conn3xorg", "netweir", "tachyon-cms", "aegis-v2", "sentry-v2",
          "Sentrello", "ticketslinger", "githard", "blueprints")
@@ -87,7 +88,7 @@ def projects_from(repos: list[PublicRepo]) -> list[Project]:
     def rank(p: Project):
         pinned = ORDER.index(p.key) if p.key in ORDER else len(ORDER)
         return pinned, -p.stars, p.key.lower()
-    return sorted(found.values(), key=rank)
+    return sorted((p for p in found.values() if p.key not in HIDE), key=rank)
 
 
 def fetch_avatar(url: str) -> str:

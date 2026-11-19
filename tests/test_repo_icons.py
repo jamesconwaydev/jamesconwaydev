@@ -20,6 +20,11 @@ class RepoIconsTest(unittest.TestCase):
         tiles = projects_from([repo(LOGIN, LOGIN, org=False), repo(LOGIN, ".github", org=False), repo(LOGIN, "aegis-v2", org=False)])
         self.assertEqual([p.key for p in tiles], ["aegis-v2"])
 
+    def test_hidden_projects_get_no_tile(self):
+        tiles = projects_from([repo("keyparity", "keyparity"), repo(LOGIN, "blueprints", org=False),
+                               repo("mrpinkapps", "simple-site", org=False), repo("netweir", "netweir")])
+        self.assertEqual([p.key for p in tiles], ["netweir"])
+
     def test_yours_first_then_by_stars(self):
         tiles = projects_from([repo("big", "x", 9000), repo("small", "y", 1), repo("netweir", "netweir", 6)])
         self.assertEqual([p.key for p in tiles], ["netweir", "big", "small"])

@@ -31,7 +31,7 @@
 </p>
 <!-- FEATURED:END -->
 
-## Projects I Build and Contribute To
+## Other Projects I Build and Contribute To
 
 <!-- REPOS:START -->
 <p align="center">
@@ -42,7 +42,6 @@
 <a href="https://github.com/jamesconwaydev/sentry-v2"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentry-v2-dark.svg"><img src="assets/repo-sentry-v2-light.svg" alt="sentry-v2" width="132"></picture></a>
 <a href="https://github.com/Sentrello"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentrello-dark.svg"><img src="assets/repo-sentrello-light.svg" alt="Sentrello" width="132"></picture></a>
 <a href="https://github.com/ticketslinger"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-ticketslinger-dark.svg"><img src="assets/repo-ticketslinger-light.svg" alt="TicketSlinger" width="132"></picture></a>
-<a href="https://github.com/jamesconwaydev/blueprints"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-blueprints-dark.svg"><img src="assets/repo-blueprints-light.svg" alt="blueprints" width="132"></picture></a>
 <a href="https://github.com/prometheus"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-prometheus-dark.svg"><img src="assets/repo-prometheus-light.svg" alt="Prometheus" width="132"></picture></a>
 <a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
 <a href="https://github.com/keycloak"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keycloak-dark.svg"><img src="assets/repo-keycloak-light.svg" alt="Keycloak" width="132"></picture></a>
@@ -61,8 +60,6 @@
 <a href="https://github.com/jamesconwaydev/advisory-database"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-advisory-database-dark.svg"><img src="assets/repo-advisory-database-light.svg" alt="advisory-database" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/cockpit"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-cockpit-dark.svg"><img src="assets/repo-cockpit-light.svg" alt="cockpit" width="132"></picture></a>
 <a href="https://github.com/getgithard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-getgithard-dark.svg"><img src="assets/repo-getgithard-light.svg" alt="GitHard" width="132"></picture></a>
-<a href="https://github.com/keyparity"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keyparity-dark.svg"><img src="assets/repo-keyparity-light.svg" alt="keyparity" width="132"></picture></a>
-<a href="https://github.com/mrpinkapps/simple-site"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-simple-site-dark.svg"><img src="assets/repo-simple-site-light.svg" alt="simple-site" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/up-for-grabs.net"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs.net-dark.svg"><img src="assets/repo-up-for-grabs.net-light.svg" alt="up-for-grabs.net" width="132"></picture></a>
 <a href="https://github.com/jamesconwaydev/winget-pkgs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-winget-pkgs-dark.svg"><img src="assets/repo-winget-pkgs-light.svg" alt="winget-pkgs" width="132"></picture></a>
 </p>
@@ -71,11 +68,11 @@
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-11-18` · **[One Gateway for Every Model, and a Key for Everyone](https://jamesconway.dev/blog/one-gateway-for-every-model/)**<br>Your OpenAI key is in four .env files and a Slack thread. One Conn3x apply puts a gateway in front of every model and gives each person their own key.
+
 `2026-11-17` · **[59 Days to Full IaCC, and Why I Need Your Stars](https://jamesconway.dev/blog/conn3x-59-days-to-full-iacc/)**<br>Where Conn3x is, what's left before it's a complete infrastructure-as-code-and-configuration tool, and the one-click thing you can do to help.
 
 `2026-11-03` · **[A Private AI Box for 4 Cents an Hour](https://jamesconway.dev/blog/private-ai-box/)**<br>I wanted to ask questions of my own notes without pasting them into someone else's chatbot. One Conn3x apply now builds the box for it, and the only door it leaves open is SSH.
-
-`2026-11-02` · **[I Found Out About Hacktoberfest Two Days Late](https://jamesconway.dev/blog/hacktoberfest-2026-recap/)**<br>Hacktoberfest ended on 31 October. I found out it existed on 2 November. Here's the October I had anyway: two launches, nine new contributors, and a lot of me talking to myself.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->

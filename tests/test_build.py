@@ -108,7 +108,7 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.run_quietly("refresh"), 0)
         readme = (self.tmp / "README.md").read_text()
         featured = readme.index('srcset="assets/feature-conn3x-dark.svg"')
-        self.assertLess(featured, readme.index("## Projects I Build and Contribute To"))
+        self.assertLess(featured, readme.index("## Other Projects I Build and Contribute To"))
         self.assertIn('width="832"', readme[featured:readme.index("<!-- FEATURED:END -->")])
         self.assertNotIn("label-featured-project", readme)
 
