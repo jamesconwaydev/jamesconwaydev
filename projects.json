@@ -1,5 +1,3 @@
 [
-  {"pillar": "featured project", "featured": true, "repos": ["conn3xorg/conn3x"]},
-  {"repos": ["netweir/netweir", "tachyon-cms/tachyoncms"]},
-  {"repos": ["getgithard/githard", "devstreamhq/devstream"]}
+  {"pillar": "featured project", "featured": true, "repos": ["conn3xorg/conn3x"]}
 ]

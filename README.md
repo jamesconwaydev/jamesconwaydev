@@ -1,8 +1,9 @@
 <!--
   Most of this file is hand-written, but not all of it. Everything between the
-  FEATURED, CARDS, REPOS and BLOG markers gets rewritten by
+  FEATURED, REPOS and BLOG markers gets rewritten by
   `python -m scripts.build refresh`, so any edit you make in there will vanish
-  on the next run. Change projects.json to swap projects.
+  on the next run. To bring project cards back, add groups to projects.json
+  and a CARDS block.
 -->
 
 <p align="center">
@@ -29,20 +30,6 @@
 <a href="https://conn3x.org">Website</a> · <a href="https://docs.conn3x.org/get-started">Docs</a> · <a href="https://conn3x.org/circuits">Circuits</a> · <a href="https://github.com/conn3xorg/conn3x">GitHub</a> · <a href="https://www.youtube.com/@conn3xlabs">YouTube</a>
 </p>
 <!-- FEATURED:END -->
-
-## Other Cool Projects
-
-<!-- CARDS:START -->
-<p>
-<a href="https://github.com/netweir/netweir"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-netweir-netweir-dark.svg"><img src="assets/card-netweir-netweir-light.svg" alt="netweir/netweir: An ultra-fast, self-healing, undetectable web scraper. Rust does the work; you write Python." width="400"></picture></a>&emsp;&emsp;<a href="https://github.com/tachyon-cms/tachyoncms"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-tachyon-cms-tachyoncms-dark.svg"><img src="assets/card-tachyon-cms-tachyoncms-light.svg" alt="tachyon-cms/tachyoncms: Rust-powered, ultra-fast, highly secure headless CMS" width="400"></picture></a>
-</p>
-
-<br>
-
-<p>
-<a href="https://github.com/getgithard/githard"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-getgithard-githard-dark.svg"><img src="assets/card-getgithard-githard-light.svg" alt="getgithard/githard: Makes AI build and manage your GitHub repos perfectly." width="400"></picture></a>&emsp;&emsp;<a href="https://github.com/devstreamhq/devstream"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-devstreamhq-devstream-dark.svg"><img src="assets/card-devstreamhq-devstream-light.svg" alt="devstreamhq/devstream: Repos ranked by the developers who like them. Submit yours, Like what you use." width="400"></picture></a>
-</p>
-<!-- CARDS:END -->
 
 ## Projects I Build and Contribute To
 

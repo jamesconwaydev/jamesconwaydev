@@ -1,6 +1,6 @@
 """Rebuild the README's generated blocks and every SVG it points at.
 
-    python -m scripts.build refresh   feature, cards, repo icons, README
+    python -m scripts.build refresh   feature, any cards, repo icons, README
     python -m scripts.build all       all of that, plus header, social icons, footer
 
 Everything is fetched and rendered in memory first, so a failed request
@@ -83,7 +83,7 @@ def render(mode: str) -> dict[str, str]:
     known = json.loads((ROOT / "contributed.json").read_text())
     token = github_token()
     slugs = [s for group in projects if not group.get("featured") for s in group["repos"]]
-    repos = dict(zip(slugs, fetch_repos(slugs, token)))
+    repos = dict(zip(slugs, fetch_repos(slugs, token))) if slugs else {}
     posts = parse_feed(fetch_feed())
     stats = fetch_stats(known, token)
     counts = fetch_org_counts(token)
@@ -92,7 +92,8 @@ def render(mode: str) -> dict[str, str]:
 
     readme = (ROOT / "README.md").read_text()
     readme = replace_block(readme, featured_block(counts), "FEATURED")
-    readme = replace_block(readme, cards_block(projects, repos), "CARDS")
+    if slugs:  # no card groups in projects.json, no CARDS block in the README
+        readme = replace_block(readme, cards_block(projects, repos), "CARDS")
     readme = replace_block(readme, icons_block(tiles), "REPOS")
     files = {
         "README.md": replace_block(readme, posts_markdown(posts), "BLOG"),

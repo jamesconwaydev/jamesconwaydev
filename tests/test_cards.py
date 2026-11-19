@@ -12,7 +12,9 @@ from scripts.fonts import text_width
 from scripts.theme import ROOT
 from tests.support import SVG_NS, assert_self_contained
 
-SLUGS = [s for p in json.loads((ROOT / "projects.json").read_text()) for s in p["repos"]]
+# graphql.json is positional: r{i} is SLUGS[i].
+SLUGS = ["conn3xorg/conn3x", "netweir/netweir", "tachyon-cms/tachyoncms", "getgithard/githard",
+         "devstreamhq/devstream"]
 FIXTURE = json.loads((ROOT / "tests" / "fixtures" / "graphql.json").read_text())
 
 

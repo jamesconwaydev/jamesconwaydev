@@ -89,14 +89,14 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(self.run_quietly("all"), 0)
         readme = (self.tmp / "README.md").read_text()
         paths = re.findall(r'(?:src|srcset)="(assets/[^"]+)"', readme)
-        self.assertEqual(len(paths), 2 * 14)  # header, 5 icons, feature, 4 cards, 2 tiles, footer
+        self.assertEqual(len(paths), 2 * 10)  # header, 5 icons, feature, 2 tiles, footer
         for path in paths:
             self.assertTrue((self.tmp / path).is_file(), path)
 
     def test_readme_blocks_filled(self):
         self.assertEqual(self.run_quietly("refresh"), 0)
         readme = (self.tmp / "README.md").read_text()
-        self.assertIn('<a href="https://github.com/netweir/netweir"><picture>', readme)
+        self.assertNotIn("assets/card-", readme)
         self.assertNotIn("github.com/Sentrello", readme)
         self.assertNotIn("assets/label-", readme)
         self.assertNotIn("assets/stats-", readme)
@@ -104,30 +104,22 @@ class BuildTest(unittest.TestCase):
         self.assertNotIn("follow-", readme)
         self.assertIn("Read the rest on jamesconway.dev", readme)
 
-    def test_featured_sits_above_the_pillars(self):
+    def test_featured_sits_above_the_repo_icons(self):
         self.assertEqual(self.run_quietly("refresh"), 0)
         readme = (self.tmp / "README.md").read_text()
         featured = readme.index('srcset="assets/feature-conn3x-dark.svg"')
-        self.assertLess(featured, readme.index("## Other Cool Projects"))
+        self.assertLess(featured, readme.index("## Projects I Build and Contribute To"))
         self.assertIn('width="832"', readme[featured:readme.index("<!-- FEATURED:END -->")])
         self.assertNotIn("label-featured-project", readme)
-        cards = [readme.index(f"card-{c}-dark") for c in
-                 ("netweir-netweir", "tachyon-cms-tachyoncms", "getgithard-githard", "devstreamhq-devstream")]
-        self.assertEqual(cards, sorted(cards))
 
-    def test_trimmed_projects_drop_stale_assets(self):
-        projects = json.loads((self.tmp / "projects.json").read_text())
-        (self.tmp / "projects.json").write_text(json.dumps(projects[-1:]))
-        self.assertEqual(self.run_quietly("refresh"), 0)
-        assets = self.tmp / "assets"
-        names = sorted(p.name for p in [*assets.glob("card-*.svg"), *assets.glob("label-*.svg")])
-        self.assertEqual(names, [
-            "card-devstreamhq-devstream-dark.svg", "card-devstreamhq-devstream-light.svg",
-            "card-getgithard-githard-dark.svg", "card-getgithard-githard-light.svg",
-        ])
+    def test_no_card_groups_drops_stale_cards(self):
+        (self.tmp / "assets" / "card-netweir-netweir-dark.svg").write_text("<svg/>")
+        with mock.patch.object(build, "fetch_repos") as fetch:
+            self.assertEqual(self.run_quietly("refresh"), 0)
+        fetch.assert_not_called()
+        self.assertEqual(list((self.tmp / "assets").glob("card-*.svg")), [])
         self.assertTrue((self.tmp / "assets" / "header-dark.svg").is_file())
-        self.assertNotIn("netweir", (self.tmp / "README.md").read_text())
-
+        self.assertNotIn("CARDS:START", (self.tmp / "README.md").read_text())
 
 if __name__ == "__main__":
     unittest.main()
