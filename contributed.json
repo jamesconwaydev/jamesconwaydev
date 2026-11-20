@@ -1,5 +1,7 @@
 [
+"BerriAI/litellm",
 "Infisical/infisical",
+"OpenSCAP/openscap",
 "Sentrello/Sentrello",
 "cockpit-project/cockpit",
 "conn3xorg/.github",
@@ -168,6 +170,7 @@
 "n8n-io/n8n-docs",
 "netweir/netweir",
 "osquery/osquery",
+"parsec-html/.github",
 "parsec-html/parsec",
 "prometheus/alertmanager",
 "prometheus/node_exporter",

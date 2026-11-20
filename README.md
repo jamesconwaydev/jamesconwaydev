@@ -43,6 +43,7 @@
 <a href="https://github.com/Sentrello"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentrello-dark.svg"><img src="assets/repo-sentrello-light.svg" alt="Sentrello" width="132"></picture></a>
 <a href="https://github.com/ticketslinger"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-ticketslinger-dark.svg"><img src="assets/repo-ticketslinger-light.svg" alt="TicketSlinger" width="132"></picture></a>
 <a href="https://github.com/prometheus"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-prometheus-dark.svg"><img src="assets/repo-prometheus-light.svg" alt="Prometheus" width="132"></picture></a>
+<a href="https://github.com/BerriAI"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-berriai-dark.svg"><img src="assets/repo-berriai-light.svg" alt="Berri AI" width="132"></picture></a>
 <a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
 <a href="https://github.com/keycloak"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keycloak-dark.svg"><img src="assets/repo-keycloak-light.svg" alt="Keycloak" width="132"></picture></a>
 <a href="https://github.com/Infisical"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-infisical-dark.svg"><img src="assets/repo-infisical-light.svg" alt="Infisical" width="132"></picture></a>
@@ -53,6 +54,7 @@
 <a href="https://github.com/up-for-grabs"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-up-for-grabs-dark.svg"><img src="assets/repo-up-for-grabs-light.svg" alt="up-for-grabs" width="132"></picture></a>
 <a href="https://github.com/github"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-github-dark.svg"><img src="assets/repo-github-light.svg" alt="GitHub" width="132"></picture></a>
 <a href="https://github.com/n8n-io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-n8n-io-dark.svg"><img src="assets/repo-n8n-io-light.svg" alt="n8n - Workflow Automation" width="132"></picture></a>
+<a href="https://github.com/OpenSCAP"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-openscap-dark.svg"><img src="assets/repo-openscap-light.svg" alt="OpenSCAP" width="132"></picture></a>
 <a href="https://github.com/jenkins-infra"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkins-infra-dark.svg"><img src="assets/repo-jenkins-infra-light.svg" alt="Jenkins Infra" width="132"></picture></a>
 <a href="https://github.com/jenkinsci"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkinsci-dark.svg"><img src="assets/repo-jenkinsci-light.svg" alt="Jenkins" width="132"></picture></a>
 <a href="https://github.com/devstreamhq"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-devstreamhq-dark.svg"><img src="assets/repo-devstreamhq-light.svg" alt="DevStream" width="132"></picture></a>
