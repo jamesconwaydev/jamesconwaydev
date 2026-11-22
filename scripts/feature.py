@@ -96,7 +96,7 @@ def feature_svg(n: OrgCounts, theme: str) -> str:
         for i, (v, k) in enumerate(stats)
     )
     fonts = font_face_css({
-        "sans-800": HEADLINE + "conn3x" + "".join(v for v, _ in stats),
+        "sans-800": HEADLINE + "Conn3x" + "".join(v for v, _ in stats),
         "sans-400": SUB,
         "mono-500": LEFT_HEAD + RIGHT_HEAD + BAND + "one plan" + "".join(LEFT + RIGHT) + "".join(k for _, k in stats),
     })
@@ -136,7 +136,7 @@ def feature_svg(n: OrgCounts, theme: str) -> str:
 <circle class="glow" cx="416" cy="{chip_mid:g}" r="118" fill="url(#glow)"/>
 {pins}
 <rect x="{CHIP_X}" y="{CHIP_Y}" width="{CHIP_W}" height="{CHIP_H}" fill="{c["panel"]}" stroke="{green}" stroke-width="2"/>
-<text x="416" y="{chip_mid + 2:g}" text-anchor="middle" class="b" fill="{c["ink"]}">conn3x</text>
+<text x="416" y="{chip_mid + 2:g}" text-anchor="middle" class="b" fill="{c["ink"]}">Conn3x</text>
 <text x="416" y="{chip_mid + 24:g}" text-anchor="middle" class="m" fill="{c["muted"]}">one plan</text>
 <text x="416" y="{Y_BAND}" text-anchor="middle" class="s" fill="{c["muted"]}">{escape(BAND)}</text>
 {leds}
