@@ -43,6 +43,7 @@
 <a href="https://github.com/Sentrello"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-sentrello-dark.svg"><img src="assets/repo-sentrello-light.svg" alt="Sentrello" width="132"></picture></a>
 <a href="https://github.com/ticketslinger"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-ticketslinger-dark.svg"><img src="assets/repo-ticketslinger-light.svg" alt="TicketSlinger" width="132"></picture></a>
 <a href="https://github.com/prometheus"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-prometheus-dark.svg"><img src="assets/repo-prometheus-light.svg" alt="Prometheus" width="132"></picture></a>
+<a href="https://github.com/withastro"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-withastro-dark.svg"><img src="assets/repo-withastro-light.svg" alt="Astro" width="132"></picture></a>
 <a href="https://github.com/BerriAI"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-berriai-dark.svg"><img src="assets/repo-berriai-light.svg" alt="Berri AI" width="132"></picture></a>
 <a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
 <a href="https://github.com/keycloak"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keycloak-dark.svg"><img src="assets/repo-keycloak-light.svg" alt="Keycloak" width="132"></picture></a>
