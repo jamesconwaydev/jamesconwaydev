@@ -71,11 +71,11 @@
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-11-22` · **[Parsec: 16 Days to Beat Lexbor, and What I'm Building Next](https://jamesconway.dev/blog/parsec-from-html-parser-to-parsing-toolkit/)**<br>Parsec started as the HTML parser Netweir needed. It beat Lexbor on every page in the benchmark, and on every input built to break it. Now it's becoming the parsing foundation for the web I wish I'd had from the start.
+
 `2026-11-18` · **[One Gateway for Every Model, and a Key for Everyone](https://jamesconway.dev/blog/one-gateway-for-every-model/)**<br>Your OpenAI key is in four .env files and a Slack thread. One Conn3x apply puts a gateway in front of every model and gives each person their own key.
 
 `2026-11-17` · **[59 Days to Full IaCC, and Why I Need Your Stars](https://jamesconway.dev/blog/conn3x-59-days-to-full-iacc/)**<br>Where Conn3x is, what's left before it's a complete infrastructure-as-code-and-configuration tool, and the one-click thing you can do to help.
-
-`2026-11-03` · **[A Private AI Box for 4 Cents an Hour](https://jamesconway.dev/blog/private-ai-box/)**<br>I wanted to ask questions of my own notes without pasting them into someone else's chatbot. One Conn3x apply now builds the box for it, and the only door it leaves open is SSH.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->
