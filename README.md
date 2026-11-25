@@ -45,6 +45,7 @@
 <a href="https://github.com/prometheus"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-prometheus-dark.svg"><img src="assets/repo-prometheus-light.svg" alt="Prometheus" width="132"></picture></a>
 <a href="https://github.com/withastro"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-withastro-dark.svg"><img src="assets/repo-withastro-light.svg" alt="Astro" width="132"></picture></a>
 <a href="https://github.com/BerriAI"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-berriai-dark.svg"><img src="assets/repo-berriai-light.svg" alt="Berri AI" width="132"></picture></a>
+<a href="https://github.com/aquasecurity"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-aquasecurity-dark.svg"><img src="assets/repo-aquasecurity-light.svg" alt="Aqua Security" width="132"></picture></a>
 <a href="https://github.com/tailscale"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-tailscale-dark.svg"><img src="assets/repo-tailscale-light.svg" alt="Tailscale" width="132"></picture></a>
 <a href="https://github.com/keycloak"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-keycloak-dark.svg"><img src="assets/repo-keycloak-light.svg" alt="Keycloak" width="132"></picture></a>
 <a href="https://github.com/Infisical"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-infisical-dark.svg"><img src="assets/repo-infisical-light.svg" alt="Infisical" width="132"></picture></a>
@@ -56,6 +57,7 @@
 <a href="https://github.com/github"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-github-dark.svg"><img src="assets/repo-github-light.svg" alt="GitHub" width="132"></picture></a>
 <a href="https://github.com/n8n-io"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-n8n-io-dark.svg"><img src="assets/repo-n8n-io-light.svg" alt="n8n - Workflow Automation" width="132"></picture></a>
 <a href="https://github.com/OpenSCAP"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-openscap-dark.svg"><img src="assets/repo-openscap-light.svg" alt="OpenSCAP" width="132"></picture></a>
+<a href="https://github.com/linux-audit"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-linux-audit-dark.svg"><img src="assets/repo-linux-audit-light.svg" alt="The Linux Audit Project" width="132"></picture></a>
 <a href="https://github.com/jenkins-infra"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkins-infra-dark.svg"><img src="assets/repo-jenkins-infra-light.svg" alt="Jenkins Infra" width="132"></picture></a>
 <a href="https://github.com/jenkinsci"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-jenkinsci-dark.svg"><img src="assets/repo-jenkinsci-light.svg" alt="Jenkins" width="132"></picture></a>
 <a href="https://github.com/devstreamhq"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/repo-devstreamhq-dark.svg"><img src="assets/repo-devstreamhq-light.svg" alt="DevStream" width="132"></picture></a>
@@ -71,11 +73,11 @@
 ## Latest from Out of Memory
 
 <!-- BLOG:START -->
+`2026-11-25` · **[Private Chat That Stays Private](https://jamesconway.dev/blog/private-chat-that-stays-private/)**<br>Your team is already pasting work into personal chatbot accounts. One Conn3x apply gives them Open WebUI on a box you control, and every door starts shut.
+
 `2026-11-22` · **[Parsec: 16 Days to Beat Lexbor, and What I'm Building Next](https://jamesconway.dev/blog/parsec-from-html-parser-to-parsing-toolkit/)**<br>Parsec started as the HTML parser Netweir needed. It beat Lexbor on every page in the benchmark, and on every input built to break it. Now it's becoming the parsing foundation for the web I wish I'd had from the start.
 
 `2026-11-18` · **[One Gateway for Every Model, and a Key for Everyone](https://jamesconway.dev/blog/one-gateway-for-every-model/)**<br>Your OpenAI key is in four .env files and a Slack thread. One Conn3x apply puts a gateway in front of every model and gives each person their own key.
-
-`2026-11-17` · **[59 Days to Full IaCC, and Why I Need Your Stars](https://jamesconway.dev/blog/conn3x-59-days-to-full-iacc/)**<br>Where Conn3x is, what's left before it's a complete infrastructure-as-code-and-configuration tool, and the one-click thing you can do to help.
 
 [Read the rest on jamesconway.dev →](https://jamesconway.dev/blog/)
 <!-- BLOG:END -->
